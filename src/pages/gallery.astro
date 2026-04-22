@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { GalleryPage } from '../components/pages/GalleryPage';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'gallery');
+const d = page.data;
+---
+
+<Base title={d.seo_title ?? d.title} description={d.seo_description}>
+  <GalleryPage
+    client:load
+    heroHeading={d.hero_heading}
+    heroSubheading={d.hero_subheading}
+  />
+</Base>

@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { TeamPage } from '../components/pages/TeamPage';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'team');
+const d = page.data;
+---
+
+<Base title={d.seo_title ?? d.title} description={d.seo_description}>
+  <TeamPage
+    client:load
+    heroHeading={d.hero_heading}
+    heroSubheading={d.hero_subheading}
+  />
+</Base>
