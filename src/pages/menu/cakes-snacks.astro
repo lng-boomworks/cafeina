@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuCollectionPage } from '../../components/pages/MenuCollectionPage';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('menuItems', (entry) => entry.data.category === 'cakes-snacks' && entry.data.locale === 'en'))
+  .map((e) => e.data);
+
+const siblings = [
+  { title: 'Cocktails', slug: 'cocktails' },
+  { title: 'Spirits', slug: 'spirits' },
+  { title: 'Wine & Beer', slug: 'wine-beer' },
+  { title: 'Beverages', slug: 'beverages' },
+];
+---
+
+<Base
+  title="Our Cakes & Snacks — Cafeina La Marina"
+  description="Homemade cakes and handcrafted savouries, baked fresh daily at Cafeina in La Marina."
+>
+  <MenuCollectionPage
+    client:load
+    categoryTitle="Cakes & Snacks"
+    heroHeading="our cakes & snacks"
+    heroSubheading="Baked in-house. Sweet, savoury, and changing with the seasons."
+    heroImage="/images/menu/cakes-snacks/cakes-hero.jpeg"
+    heroImageAlt="Cakes at Cafeina"
+    items={items}
+    siblingCategories={siblings}
+  />
+</Base>

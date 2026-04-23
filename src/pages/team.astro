@@ -1,16 +1,28 @@
 ---
 import Base from '../layouts/Base.astro';
 import { TeamPage } from '../components/pages/TeamPage';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 const page = await getEntry('pages', 'team');
 const d = page.data;
+
+const members = (await getCollection('teamMembers', (entry) => entry.data.locale === 'en'))
+  .map((e) => e.data)
+  .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
 ---
 
 <Base title={d.seo_title ?? d.title} description={d.seo_description}>
   <TeamPage
     client:load
+    heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
+    heroLandscapeImage={d.hero_landscape_image}
+    heroLandscapeImageAlt={d.hero_landscape_image_alt}
+    introHeading={d.intro_heading}
+    introBody={d.intro_body}
+    members={members}
+    ctaHeading={d.cta_heading}
+    ctaText={d.cta_text}
   />
 </Base>

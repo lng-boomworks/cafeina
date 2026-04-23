@@ -1,17 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import { AboutPage } from '../components/pages/AboutPage';
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 
 const page = await getEntry('pages', 'about');
 const d = page.data;
-const { Content } = await render(page);
 ---
 
 <Base title={d.seo_title ?? d.title} description={d.seo_description}>
   <AboutPage
     client:load
+    heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
+    heroImage={d.hero_image}
+    heroImageAlt={d.hero_image_alt}
+    storyHeading={d.story_heading}
+    storyBody={d.story_body}
+    storyImage={d.story_image}
+    storyImageAlt={d.story_image_alt}
+    spaceHeading={d.space_heading}
+    spaceBody={d.space_body}
+    spaceImage={d.space_image}
+    spaceImageAlt={d.space_image_alt}
+    values={d.values}
+    ctaHeading={d.cta_heading}
+    ctaText={d.cta_text}
   />
 </Base>

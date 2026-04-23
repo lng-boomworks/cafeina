@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuLandingPage } from '../../components/pages/MenuLandingPage';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'menu');
+const d = page.data;
+---
+
+<Base title={d.seo_title ?? d.title} description={d.seo_description}>
+  <MenuLandingPage
+    client:load
+    heroLabel={d.hero_label}
+    heroHeading={d.hero_heading}
+    heroSubheading={d.hero_subheading}
+    heroLandscapeImage={d.hero_landscape_image}
+    heroLandscapeImageAlt={d.hero_landscape_image_alt}
+    categories={d.menu_categories}
+    ctaHeading={d.cta_heading}
+    ctaText={d.cta_text}
+  />
+</Base>

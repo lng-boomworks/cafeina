@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { EventsPage } from '../components/pages/EventsPage';
+import { getEntry, getCollection } from 'astro:content';
+
+const page = await getEntry('pages', 'events');
+const d = page.data;
+
+const events = (await getCollection('events', (entry) => entry.data.locale === 'en'))
+  .map((e) => e.data)
+  .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
+
+// Past event gallery — use galleryImages flagged as category=events, plus curated shots
+const allGallery = (await getCollection('galleryImages', (entry) => entry.data.locale === 'en'))
+  .map((e) => e.data);
+const pastEvents = allGallery
+  .filter((g) => g.category === 'events' || g.category === 'atmosphere')
+  .sort((a, b) => (a.order ?? 100) - (b.order ?? 100))
+  .map((g) => ({ src: g.src, alt: g.alt, caption: g.caption }));
+---
+
+<Base title={d.seo_title ?? d.title} description={d.seo_description}>
+  <EventsPage
+    client:load
+    heroLabel={d.hero_label}
+    heroHeading={d.hero_heading}
+    heroSubheading={d.hero_subheading}
+    heroImage={d.hero_image}
+    heroImageAlt={d.hero_image_alt}
+    introHeading={d.intro_heading}
+    introBody={d.intro_body}
+    events={events}
+    pastEvents={pastEvents}
+    ctaHeading={d.cta_heading}
+    ctaText={d.cta_text}
+  />
+</Base>

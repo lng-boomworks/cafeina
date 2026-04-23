@@ -1,16 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
 import { GalleryPage } from '../components/pages/GalleryPage';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 const page = await getEntry('pages', 'gallery');
 const d = page.data;
+
+const images = (await getCollection('galleryImages', (entry) => entry.data.locale === 'en'))
+  .map((e) => e.data)
+  .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
 ---
 
 <Base title={d.seo_title ?? d.title} description={d.seo_description}>
   <GalleryPage
     client:load
+    heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
+    heroLandscapeImage={d.hero_landscape_image}
+    heroLandscapeImageAlt={d.hero_landscape_image_alt}
+    images={images}
+    ctaHeading={d.cta_heading}
+    ctaText={d.cta_text}
   />
 </Base>

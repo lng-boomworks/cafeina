@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuCollectionPage } from '../../components/pages/MenuCollectionPage';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('menuItems', (entry) => entry.data.category === 'cocktails' && entry.data.locale === 'en'))
+  .map((e) => e.data);
+
+const siblings = [
+  { title: 'Spirits', slug: 'spirits' },
+  { title: 'Wine & Beer', slug: 'wine-beer' },
+  { title: 'Beverages', slug: 'beverages' },
+  { title: 'Cakes & Snacks', slug: 'cakes-snacks' },
+];
+---
+
+<Base
+  title="Our Cocktail Collection — Cafeina La Marina"
+  description="Signature and classic cocktails, freshly made at Cafeina in La Marina. Negronis, martinis, and a rotating cocktail of the week."
+>
+  <MenuCollectionPage
+    client:load
+    categoryTitle="Cocktail Collection"
+    heroHeading="our cocktail collection"
+    heroSubheading="Signatures, classics, and a new one on the board each week."
+    heroImage="/images/home/negroni.jpeg"
+    heroImageAlt="Negroni cocktail at Cafeina"
+    items={items}
+    siblingCategories={siblings}
+  />
+</Base>

@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuCollectionPage } from '../../components/pages/MenuCollectionPage';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('menuItems', (entry) => entry.data.category === 'beverages' && entry.data.locale === 'en'))
+  .map((e) => e.data);
+
+const siblings = [
+  { title: 'Cocktails', slug: 'cocktails' },
+  { title: 'Spirits', slug: 'spirits' },
+  { title: 'Wine & Beer', slug: 'wine-beer' },
+  { title: 'Cakes & Snacks', slug: 'cakes-snacks' },
+];
+---
+
+<Base
+  title="Our Beverage Collection — Cafeina La Marina"
+  description="Coffee, loose-leaf teas and fresh juices at Cafeina in La Marina."
+>
+  <MenuCollectionPage
+    client:load
+    categoryTitle="Beverage Collection"
+    heroHeading="our beverage collection"
+    heroSubheading="Proper coffee, loose-leaf teas, and the full morning list."
+    heroImage="/images/menu/beverages/cafe-americano.webp"
+    heroImageAlt="Café americano"
+    items={items}
+    siblingCategories={siblings}
+  />
+</Base>

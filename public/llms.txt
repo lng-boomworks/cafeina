@@ -1,21 +1,31 @@
-# Your Business Name
+# Cafeina La Marina
 
-> Your business tagline.
+> A relaxing vintage café in La Marina, San Fulgencio (Alicante), Spain. Coffee, tea, cakes and craft cocktails — family-run since 2009.
 
-Description of your business and what you do.
+Cafeina is a cozy nook in La Marina, now under the ownership of Callum and Millie, continuing the legacy of founder Maria (2009). Table service, homemade cakes, craft cocktails, and a warm welcome every day of the week.
 
-## Services
-- Service One
-- Service Two
-- Service Three
+## What we serve
+- Coffee (Café Latte, Americano, Café con Leche) and loose-leaf teas
+- Homemade cakes (lemon drizzle, Victoria sponge, carrot cake, seasonal bakes)
+- Savouries (cheddar sausage rolls, ham & cheese toasties, cheese boards)
+- Wine & beer (Spanish wines by the glass, cava, Estrella Damm, Mahou)
+- Spirits (gin, whiskey, brandy, bourbon, vodka, rum, tequila, cognac)
+- Craft cocktails (featured weekly — the Negroni is a house classic)
+
+## Events
+- Monthly Wine Tasting nights — a journey through Spanish vineyards
+- Fiestas La Marina — authentic Spanish celebrations with music, dancing and food
 
 ## Contact
-- Phone: 01234 567890
-- Email: hello@example.com
-- Address: Your Town, County, Postcode
+- Phone: +34 711 05 13 58
+- Email: hola@cafeinalamarina.com
+- Address: Calle Luis de Gongora Sector VI-VII, Local 43-44, 03177 San Fulgencio (Alicante), Spain
+- Hours: Mon–Sat 9am till late; Sun 5pm till late
 
 ## Key pages
-- Home: https://example.com/
-- Services: https://example.com/services
-- About: https://example.com/about
-- Contact: https://example.com/contact
+- Home: https://lng-boomworks.github.io/cafeina/
+- Our Story: https://lng-boomworks.github.io/cafeina/about
+- Menu: https://lng-boomworks.github.io/cafeina/menu
+- Events: https://lng-boomworks.github.io/cafeina/events
+- Team: https://lng-boomworks.github.io/cafeina/team
+- Contact: https://lng-boomworks.github.io/cafeina/contact

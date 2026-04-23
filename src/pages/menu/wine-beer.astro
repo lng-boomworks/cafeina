@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuCollectionPage } from '../../components/pages/MenuCollectionPage';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('menuItems', (entry) => entry.data.category === 'wine-beer' && entry.data.locale === 'en'))
+  .map((e) => e.data);
+
+const siblings = [
+  { title: 'Cocktails', slug: 'cocktails' },
+  { title: 'Spirits', slug: 'spirits' },
+  { title: 'Beverages', slug: 'beverages' },
+  { title: 'Cakes & Snacks', slug: 'cakes-snacks' },
+];
+---
+
+<Base
+  title="Wine & Beer — Cafeina La Marina"
+  description="Spanish wines by the glass, cava, and cold beers on tap at Cafeina in La Marina."
+>
+  <MenuCollectionPage
+    client:load
+    categoryTitle="Wine & Beer Collection"
+    heroHeading="our wine & beer collection"
+    heroSubheading="Spanish wines by the glass, sparkling cava and cold beers on tap."
+    heroImage="/images/gallery/afternoon-tea.jpg"
+    heroImageAlt="A glass of Spanish wine"
+    items={items}
+    siblingCategories={siblings}
+  />
+</Base>

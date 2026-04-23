@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MenuCollectionPage } from '../../components/pages/MenuCollectionPage';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('menuItems', (entry) => entry.data.category === 'spirits' && entry.data.locale === 'en'))
+  .map((e) => e.data);
+
+const siblings = [
+  { title: 'Cocktails', slug: 'cocktails' },
+  { title: 'Wine & Beer', slug: 'wine-beer' },
+  { title: 'Beverages', slug: 'beverages' },
+  { title: 'Cakes & Snacks', slug: 'cakes-snacks' },
+];
+---
+
+<Base
+  title="Our Spirit Collection — Cafeina La Marina"
+  description="Gins, tonics, whiskies and more — a curated spirit shelf at Cafeina in La Marina."
+>
+  <MenuCollectionPage
+    client:load
+    categoryTitle="Spirit Collection"
+    heroHeading="our spirit collection"
+    heroSubheading="Gins, whiskies, rums and more — a shelf worth exploring."
+    heroImage="/images/menu/spirits/spirits-collection.jpeg"
+    heroImageAlt="Spirits at Cafeina"
+    items={items}
+    siblingCategories={siblings}
+  />
+</Base>

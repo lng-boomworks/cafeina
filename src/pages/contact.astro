@@ -10,11 +10,14 @@ const d = page.data;
 <Base title={d.seo_title ?? d.title} description={d.seo_description}>
   <ContactPage
     client:load
+    heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
     email={d.email}
     phone={d.phone}
+    phoneDisplay={d.phone_display}
     address={d.address}
-    calendlyUrl={d.calendly_url}
+    hours={d.hours}
+    mapEmbedUrl={d.map_embed_url}
   />
 </Base>

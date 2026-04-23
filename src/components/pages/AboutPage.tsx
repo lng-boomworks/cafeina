@@ -2,148 +2,175 @@ import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
-import { Heart, Leaf, Home, Sparkles } from "lucide-react";
+import { LandscapeBanner } from "../LandscapeBanner";
+import { withBase } from "../../utils/url";
+import { Leaf, Coffee, Utensils, Heart } from "lucide-react";
 
-const values = [
-  {
-    icon: Heart,
-    title: "Community first",
-    desc: "We're here for the regulars, the newcomers, and the afternoon-tea occasions. Everyone gets the same welcome.",
-  },
-  {
-    icon: Leaf,
-    title: "Fresh & local",
-    desc: "Cakes made in-house, produce sourced locally where we can. Simple ingredients, treated with care.",
-  },
-  {
-    icon: Home,
-    title: "A family tradition",
-    desc: "Maria opened Cafeina in 2009. Millie trained under her and now runs the place with Callum — preserving the essence, with a few thoughtful tweaks.",
-  },
-  {
-    icon: Sparkles,
-    title: "Served with love",
-    desc: "Table service, proper time taken over a coffee, no rush. That's what makes a café feel like home.",
-  },
-];
-
-const owners = [
-  {
-    name: "Millie",
-    role: "Co-owner",
-    bio: "Millie trained under Maria, Cafeina's original creator in 2009. She brings a deep understanding of what makes this place feel like home.",
-    photoAlt: "{{TEAM_MEMBER_1_PHOTO_ALT}}",
-  },
-  {
-    name: "Callum",
-    role: "Co-owner",
-    bio: "Callum runs the evening cocktail programme and makes sure every table gets the same care — whether you're in for a coffee or the full afternoon tea.",
-    photoAlt: "{{TEAM_MEMBER_2_PHOTO_ALT}}",
-  },
-];
-
-interface AboutPageProps {
-  heroHeading?: string;
-  heroSubheading?: string;
+interface ValueItem {
+  title: string;
+  body: string;
+  icon?: string;
 }
 
+interface AboutPageProps {
+  heroLabel?: string;
+  heroHeading?: string;
+  heroSubheading?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  storyHeading?: string;
+  storyBody?: string;
+  storyImage?: string;
+  storyImageAlt?: string;
+  spaceHeading?: string;
+  spaceBody?: string;
+  spaceImage?: string;
+  spaceImageAlt?: string;
+  values?: ValueItem[];
+  ctaHeading?: string;
+  ctaText?: string;
+}
+
+const valueIcons = [Leaf, Heart, Coffee, Utensils];
+
 export function AboutPage({
-  heroHeading = "Serving with love since 2009.",
-  heroSubheading = "A family tradition, honoured and continued by Millie & Callum.",
+  heroLabel = "a family tradition",
+  heroHeading = "serving with love",
+  heroSubheading = "since 2009",
+  heroImage,
+  heroImageAlt,
+  storyHeading = "our story",
+  storyBody = "",
+  storyImage,
+  storyImageAlt,
+  spaceHeading,
+  spaceBody,
+  spaceImage,
+  spaceImageAlt,
+  values = [],
+  ctaHeading = "Come be part of the story.",
+  ctaText = "A coffee, a cake, an afternoon tea. Whatever the visit, we're glad you're here.",
 }: AboutPageProps) {
+  const storyParagraphs = storyBody.split(/\n\s*\n/).filter(Boolean);
   return (
     <>
       <Navbar />
       <main className="pt-[72px]">
-        <div className="flex flex-col bg-white">
-          <section className="bg-cream py-20 md:py-32">
-            <div className="max-w-3xl mx-auto px-4 text-center">
-              <FadeIn>
-                <span className="text-sage font-medium uppercase tracking-wide text-sm mb-4 block">Our story</span>
-                <h1 className="mb-6">{heroHeading}</h1>
-                <p className="text-xl text-text-muted">{heroSubheading}</p>
+        <section className="bg-cream py-20 md:py-28 overflow-hidden">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <FadeIn className="md:col-span-7 text-center md:text-left">
+                <span className="text-sage font-medium uppercase tracking-wide text-sm mb-4 block">{heroLabel}</span>
+                <h1 className="mb-2 font-serif italic">{heroHeading}</h1>
+                <p className="text-2xl md:text-3xl text-teal-deep/70 font-serif italic">{heroSubheading}</p>
               </FadeIn>
-            </div>
-          </section>
-
-          <section className="py-20 md:py-32">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid lg:grid-cols-12 gap-16 items-center">
-                <FadeIn className="lg:col-span-5 relative">
-                  <div className="aspect-square md:aspect-[4/5] rounded-[24px] overflow-hidden relative z-10 border border-border/50 bg-teal-pale flex items-center justify-center">
-                    <span className="text-text-muted text-lg">{`{{ABOUT_HERO_IMAGE_ALT}}`}</span>
+              {heroImage && (
+                <FadeIn delay={0.15} className="md:col-span-5">
+                  <div className="aspect-[4/5] rounded-[28px] overflow-hidden border border-border shadow-[0_20px_60px_-20px_rgba(68,42,24,0.3)]">
+                    <img
+                      src={withBase(heroImage)}
+                      alt={heroImageAlt ?? "Cafeina"}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                    />
                   </div>
                 </FadeIn>
-                <FadeIn delay={0.2} className="lg:col-span-7">
-                  <h2 className="mb-6">A family tradition</h2>
-                  <div className="prose prose-lg text-text-body max-w-none">
-                    <p>Cafeina opened in 2009, the work of our founder Maria. She built it into the cozy nook La Marina knows — homemade cakes, proper coffee, and time taken over every visit.</p>
-                    <p>Millie worked under Maria for years and brings an invaluable understanding of what makes Cafeina itself. Today she runs the café with Callum, honouring Maria's original vision and adding a few thoughtful improvements of their own.</p>
-                    <p>The same welcome. The same homemade bakes. The same "sit as long as you like". We're just making sure Maria would still be proud.</p>
-                    <p className="font-serif italic text-teal-deep">— Millie & Callum</p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <FadeIn className="lg:col-span-5">
+                {storyImage ? (
+                  <div className="aspect-square md:aspect-[4/5] rounded-[24px] overflow-hidden border border-border/50">
+                    <img
+                      src={withBase(storyImage)}
+                      alt={storyImageAlt ?? "Our team"}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
+                ) : (
+                  <div className="aspect-square md:aspect-[4/5] rounded-[24px] bg-teal-pale border border-border/50" />
+                )}
+              </FadeIn>
+              <FadeIn delay={0.15} className="lg:col-span-7">
+                <h2 className="mb-8 font-serif italic">{storyHeading}</h2>
+                <div className="space-y-6 text-[17px] text-text-body leading-[1.8]">
+                  {storyParagraphs.map((para, i) => (
+                    <p key={i}>{para.trim()}</p>
+                  ))}
+                </div>
+                <p className="font-serif italic text-teal-deep mt-8">— Millie & Callum</p>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {spaceImage && (
+          <section className="py-12 md:py-16 bg-white">
+            <div className="px-4 sm:px-6 lg:px-8">
+              <LandscapeBanner
+                image={spaceImage}
+                imageAlt={spaceImageAlt ?? spaceHeading ?? "Cafeina interior"}
+                aspect="banner"
+                parallax
+              />
+              {(spaceHeading || spaceBody) && (
+                <FadeIn className="max-w-3xl mx-auto text-center mt-10 md:mt-12">
+                  {spaceHeading && (
+                    <h2 className="mb-4 font-serif italic">{spaceHeading}</h2>
+                  )}
+                  {spaceBody && (
+                    <p className="text-lg text-text-muted leading-relaxed">{spaceBody}</p>
+                  )}
                 </FadeIn>
-              </div>
+              )}
             </div>
           </section>
+        )}
 
-          <section className="py-20 md:py-28 bg-ivory">
+        {values.length > 0 && (
+          <section className="py-20 md:py-24 bg-ivory">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <FadeIn className="text-center mb-16">
-                <h2 className="mb-4">Meet Millie & Callum</h2>
-                <p className="text-lg text-text-muted">The people behind the pass.</p>
-              </FadeIn>
-              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-4xl mx-auto">
-                {owners.map((owner, i) => (
-                  <FadeIn key={owner.name} delay={i * 0.2}>
-                    <div className="text-center">
-                      <div className="aspect-square rounded-[24px] overflow-hidden bg-teal-pale border border-border/50 mb-6 flex items-center justify-center">
-                        <span className="text-text-muted">{owner.photoAlt}</span>
-                      </div>
-                      <span className="text-sage font-medium uppercase tracking-wide text-sm mb-2 block">{owner.role}</span>
-                      <h3 className="text-2xl mb-4">{owner.name}</h3>
-                      <p className="text-text-muted leading-relaxed">{owner.bio}</p>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-              <FadeIn className="text-center mt-12">
-                <Button variant="ghost" href="/team">Meet the full team</Button>
-              </FadeIn>
-            </div>
-          </section>
-
-          <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <FadeIn className="text-center mb-16">
-                <h2 className="mb-4">What we stand for</h2>
+              <FadeIn className="text-center mb-14">
+                <h2 className="mb-4 font-serif italic">What we stand for</h2>
                 <p className="text-lg text-text-muted">The values that guide every visit.</p>
               </FadeIn>
-              <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-                {values.map((value, i) => (
-                  <FadeIn key={i} delay={i * 0.1}>
-                    <div className="bg-white p-8 md:p-10 rounded-2xl border border-border h-full hover:shadow-md transition-shadow">
-                      <value.icon className="w-8 h-8 text-teal-mid mb-6" strokeWidth={1.5} />
-                      <h3 className="text-2xl mb-4">{value.title}</h3>
-                      <p className="text-text-muted leading-relaxed">{value.desc}</p>
-                    </div>
-                  </FadeIn>
-                ))}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {values.map((value, i) => {
+                  const Icon = valueIcons[i % valueIcons.length];
+                  return (
+                    <FadeIn key={value.title} delay={i * 0.08}>
+                      <div className="bg-white p-8 rounded-2xl border border-border h-full hover:shadow-md transition-shadow">
+                        <Icon className="w-7 h-7 text-teal-mid mb-5" strokeWidth={1.5} />
+                        <h3 className="text-xl mb-3 font-serif">{value.title}</h3>
+                        <p className="text-text-muted leading-relaxed">{value.body}</p>
+                      </div>
+                    </FadeIn>
+                  );
+                })}
               </div>
+              <FadeIn className="text-center mt-12">
+                <Button variant="ghost" href="/team">Meet the team</Button>
+              </FadeIn>
             </div>
           </section>
+        )}
 
-          <section className="py-24 bg-teal-deep text-center px-4">
-            <FadeIn className="max-w-3xl mx-auto">
-              <h2 className="text-white mb-6">Come be part of the story.</h2>
-              <p className="text-teal-light text-lg mb-10">A coffee, a cake, an afternoon tea. Whatever the visit, we're glad you're here.</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button variant="white" href="/contact">Book a table</Button>
-                <Button variant="outline-white" href="tel:+34635477903">Call +34 635 477 903</Button>
-              </div>
-            </FadeIn>
-          </section>
-        </div>
+        <section className="py-24 bg-teal-deep text-center px-4">
+          <FadeIn className="max-w-3xl mx-auto">
+            <h2 className="text-white mb-6 font-serif italic">{ctaHeading}</h2>
+            <p className="text-teal-light text-lg mb-10">{ctaText}</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button variant="white" href="/contact">Book a table</Button>
+              <Button variant="outline-white" href="tel:+34711051358">Call +34 711 05 13 58</Button>
+            </div>
+          </FadeIn>
+        </section>
       </main>
       <Footer />
     </>
