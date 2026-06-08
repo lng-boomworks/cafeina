@@ -1,0 +1,38 @@
+---
+import { withBase } from '../../utils/url';
+import { getMenuData } from '../../utils/menu';
+
+// One redirect stub per category slug — preserves old /menu/<category> deep
+// links and gives every category (including new ones added to menu.json) a
+// shareable URL that lands on the right section of the single-page menu.
+export function getStaticPaths() {
+  const { categories } = getMenuData('en');
+  return categories.map((c) => ({
+    params: { category: c.slug },
+    props: { title: c.title },
+  }));
+}
+
+const { category } = Astro.params;
+const { title } = Astro.props;
+const target = `${withBase('/menu')}#${category}`;
+const canonical = new URL(withBase('/menu'), Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <title>{title} — Cafeina La Marina</title>
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href={target}>our menu</a>…</p>
+  </body>
+</html>

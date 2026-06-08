@@ -2,20 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "./Button";
 import { withBase } from "../utils/url";
+import { getCategoryNavLinks } from "../utils/menu";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+// Menu dropdown is derived from menu.json categories (bundled at build), so
+// adding a category to the JSON automatically updates the nav — no edits here.
 const navLinks = [
   {
     name: "Menu",
     path: "/menu",
-    dropdown: [
-      { name: "Cocktails", path: "/menu/cocktails" },
-      { name: "Spirits", path: "/menu/spirits" },
-      { name: "Wine & Beer", path: "/menu/wine-beer" },
-      { name: "Beverages", path: "/menu/beverages" },
-      { name: "Cakes & Snacks", path: "/menu/cakes-snacks" },
-    ],
+    dropdown: getCategoryNavLinks("en"),
   },
   { name: "About", path: "/about" },
   { name: "Team", path: "/team" },

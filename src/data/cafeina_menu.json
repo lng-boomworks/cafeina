@@ -1,0 +1,2096 @@
+{
+  "currency": "EUR",
+  "note": "All prices include IVA. All cocktails EUR 7.50 unless stated. Mocktails EUR 4.50 unless stated.",
+  "allergen_legend": {
+    "G": "Gluten",
+    "C": "Crustaceans",
+    "E": "Eggs",
+    "F": "Fish",
+    "P": "Peanuts",
+    "S": "Soya",
+    "M": "Milk",
+    "N": "Nuts",
+    "Ce": "Celery",
+    "Mu": "Mustard",
+    "Se": "Sesame",
+    "Su": "Sulphites",
+    "L": "Lupin",
+    "Mo": "Molluscs"
+  },
+  "menus": {
+    "Cocktails": {
+      "Classic Cocktails": [
+        {
+          "item": "Amaretto Sours",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Apple Rumble",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Bitch Slap",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Black Russian",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Bloody Mary",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Blue Bitch",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Blue Hawaiian",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Blue Lagoon",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Brandy Alexander",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Cosmopolitan",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Espresso Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "French Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "French Fry",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Gin Alexander",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Gin Mojito",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Gin Sling",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Gin Swizzle",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Green Parrot",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Long Island Ice Tea",
+          "variant": null,
+          "price_eur": 10.0,
+          "allergens": []
+        },
+        {
+          "item": "Mai Tai",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Margarita",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Mojito",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Moscow Mule",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Negroni",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Old Fashioned Jack",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Whiskey Sours",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "White Russian",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Woo Woo",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        }
+      ],
+      "Cafeina Signatures": [
+        {
+          "item": "Cafeina Orgasm",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Cafeina Rum Punch",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Choc Orange Espresso Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Funky Cold Medina",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Milky Bar",
+          "variant": null,
+          "price_eur": 6.5,
+          "allergens": []
+        },
+        {
+          "item": "Orgasm",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Passoa Rumbon",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Planters Punch",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Porn Star Martini",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Rosie Posey",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        },
+        {
+          "item": "Sex on the Beach",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Slippery Nipple",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Vanilla Espresso Daiquiri",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        }
+      ],
+      "Frozen & Fruit Cocktails": [
+        {
+          "item": "Pina Colada",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Coconut Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Mango Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Strawberry Colada",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Strawberry Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Strawberry Kiwi Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Strawberry Mojito",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Passion Fruit Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Watermelon Daiquiri",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Purple Rain",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        },
+        {
+          "item": "Singapore Sling",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Tequila Sunrise",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        }
+      ],
+      "Coffee & Espresso Cocktails": [
+        {
+          "item": "Breakfast Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Choc Orange Espresso Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Espresso Martini",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Flat White Martini",
+          "variant": null,
+          "price_eur": 8.0,
+          "allergens": []
+        }
+      ],
+      "Mocktails": [
+        {
+          "item": "Baby Shark",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Bora Bora",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Caribbean Sunset",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Cherry Coketail",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Cuddles on the Beach",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Frozen Daiquiri Mocktail",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Nojito",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "San Francisco",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Shirley Temple",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Summer Berry Punch",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Tropical Swizzle",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Virgin Pina Colada",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        }
+      ]
+    },
+    "Cold Drinks, Beers & Wine": {
+      "Soft Drinks": [
+        {
+          "item": "Coca-Cola / Coke Zero",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Fanta Orange / Lemon",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Aquarius",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Nestea",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Irn Bru",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Seven Up",
+          "variant": null,
+          "price_eur": 1.5,
+          "allergens": []
+        },
+        {
+          "item": "Casera",
+          "variant": null,
+          "price_eur": 1.5,
+          "allergens": []
+        },
+        {
+          "item": "Ginger Ale",
+          "variant": null,
+          "price_eur": 2.3,
+          "allergens": []
+        },
+        {
+          "item": "Ginger Beer",
+          "variant": null,
+          "price_eur": 2.4,
+          "allergens": []
+        },
+        {
+          "item": "Red Bull",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Tonic Schweppes",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Tonic Schweppes Zero",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Fever Tree Light",
+          "variant": null,
+          "price_eur": 2.7,
+          "allergens": []
+        },
+        {
+          "item": "Fever Tree Mediterranean",
+          "variant": null,
+          "price_eur": 2.7,
+          "allergens": []
+        },
+        {
+          "item": "Water (Still)",
+          "variant": null,
+          "price_eur": 1.8,
+          "allergens": []
+        },
+        {
+          "item": "Sparkling Water",
+          "variant": null,
+          "price_eur": 1.6,
+          "allergens": []
+        }
+      ],
+      "Juices": [
+        {
+          "item": "Orange / Apple / Pineapple",
+          "variant": null,
+          "price_eur": 1.6,
+          "allergens": []
+        },
+        {
+          "item": "Tomato / Peach",
+          "variant": null,
+          "price_eur": 1.6,
+          "allergens": []
+        },
+        {
+          "item": "Fruit Juice & Casera Pint",
+          "variant": null,
+          "price_eur": 2.2,
+          "allergens": []
+        },
+        {
+          "item": "Dash — Lime / Blackcurrant / Orange / Casera",
+          "variant": null,
+          "price_eur": 0.2,
+          "allergens": []
+        }
+      ],
+      "Beers & Ciders": [
+        {
+          "item": "Guinness",
+          "variant": "Half",
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Guinness",
+          "variant": "Pint",
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Guinness 0.0%",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Heineken",
+          "variant": "Half",
+          "price_eur": 2.2,
+          "allergens": []
+        },
+        {
+          "item": "Heineken",
+          "variant": "Pint",
+          "price_eur": 3.4,
+          "allergens": []
+        },
+        {
+          "item": "Heineken 0.0",
+          "variant": null,
+          "price_eur": 2.4,
+          "allergens": []
+        },
+        {
+          "item": "Caffreys",
+          "variant": "Half",
+          "price_eur": 2.3,
+          "allergens": []
+        },
+        {
+          "item": "Caffreys",
+          "variant": "Pint",
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Strongbow",
+          "variant": "Half",
+          "price_eur": 2.4,
+          "allergens": []
+        },
+        {
+          "item": "Strongbow",
+          "variant": "Pint",
+          "price_eur": 4.4,
+          "allergens": []
+        },
+        {
+          "item": "Budweiser",
+          "variant": null,
+          "price_eur": 2.4,
+          "allergens": []
+        },
+        {
+          "item": "Corona",
+          "variant": null,
+          "price_eur": 2.6,
+          "allergens": []
+        },
+        {
+          "item": "Mahou Green",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Mahou Red",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Mahou Toastada",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "San Miguel",
+          "variant": null,
+          "price_eur": 2.3,
+          "allergens": []
+        },
+        {
+          "item": "Alhambra",
+          "variant": "Half",
+          "price_eur": 2.2,
+          "allergens": []
+        },
+        {
+          "item": "Alhambra",
+          "variant": "Pint",
+          "price_eur": 3.4,
+          "allergens": []
+        },
+        {
+          "item": "John Smiths",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Kopparberg",
+          "variant": null,
+          "price_eur": 3.6,
+          "allergens": []
+        },
+        {
+          "item": "Bacardi Breezer",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Smirnoff Ice",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        }
+      ],
+      "Wines & Cava": [
+        {
+          "item": "Wine Red / Rose / White",
+          "variant": "Glass",
+          "price_eur": 2.6,
+          "allergens": []
+        },
+        {
+          "item": "Tinto Verano",
+          "variant": "Glass",
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Medium Sweet",
+          "variant": "Glass",
+          "price_eur": 2.6,
+          "allergens": []
+        },
+        {
+          "item": "Cava Brut",
+          "variant": "Glass",
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Cava Brut",
+          "variant": "Small",
+          "price_eur": 4.3,
+          "allergens": []
+        },
+        {
+          "item": "Cava Brut",
+          "variant": "Large",
+          "price_eur": 11.0,
+          "allergens": []
+        },
+        {
+          "item": "Cava Semi",
+          "variant": "Large",
+          "price_eur": 10.5,
+          "allergens": []
+        },
+        {
+          "item": "Cava 0.0%",
+          "variant": "Glass",
+          "price_eur": 2.6,
+          "allergens": []
+        },
+        {
+          "item": "Prosecco White",
+          "variant": "Small",
+          "price_eur": 5.3,
+          "allergens": []
+        },
+        {
+          "item": "Prosecco White",
+          "variant": "Large",
+          "price_eur": 15.5,
+          "allergens": []
+        },
+        {
+          "item": "Prosecco Rose",
+          "variant": "Small",
+          "price_eur": 5.3,
+          "allergens": []
+        },
+        {
+          "item": "Prosecco Rose",
+          "variant": "Large",
+          "price_eur": 15.5,
+          "allergens": []
+        },
+        {
+          "item": "Aperol Spritz",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Hugo Spritz",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Limoncello Spritzer",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        }
+      ]
+    },
+    "Food & Treats": {
+      "Cakes & Bakes": [
+        {
+          "item": "Afternoon Tea",
+          "variant": null,
+          "price_eur": 15.0,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Apple Pie",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "Biscoff Cheesecake",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": [
+            "G",
+            "E",
+            "M",
+            "S"
+          ]
+        },
+        {
+          "item": "Carrot Cake",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": [
+            "G",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        {
+          "item": "Cherry Pie",
+          "variant": null,
+          "price_eur": 3.2,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "Cheese & Onion Quiche",
+          "variant": null,
+          "price_eur": 3.2,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Cheese & Onion Slice",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Chicken & Mushroom Pie",
+          "variant": null,
+          "price_eur": 3.4,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Chocolate Cake",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": [
+            "G",
+            "E",
+            "M",
+            "S"
+          ]
+        },
+        {
+          "item": "Cornish Pastie",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Crumpets (2) with Butter",
+          "variant": null,
+          "price_eur": 1.9,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "Egg Custard",
+          "variant": null,
+          "price_eur": 2.9,
+          "allergens": [
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Mince Pie",
+          "variant": null,
+          "price_eur": 1.5,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "Mince Pie & Coffee",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "Red Velvet Cake",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Sausage Roll",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": [
+            "G",
+            "E"
+          ]
+        },
+        {
+          "item": "Scone Plain",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Scone with Butter & Jam",
+          "variant": null,
+          "price_eur": 3.1,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Scone with Strawberry Jam & Cream",
+          "variant": null,
+          "price_eur": 3.6,
+          "allergens": [
+            "G"
+          ]
+        },
+        {
+          "item": "Steakbake",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Teacake with Butter & Jam",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": [
+            "G",
+            "E",
+            "M"
+          ]
+        },
+        {
+          "item": "Crisps",
+          "variant": null,
+          "price_eur": 1.0,
+          "allergens": []
+        }
+      ],
+      "Extras": [
+        {
+          "item": "Cream",
+          "variant": null,
+          "price_eur": 0.5,
+          "allergens": [
+            "M"
+          ]
+        },
+        {
+          "item": "Ice Cream",
+          "variant": null,
+          "price_eur": 0.5,
+          "allergens": [
+            "M"
+          ]
+        }
+      ],
+      "Milkshakes": [
+        {
+          "item": "Vanilla",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": [
+            "M"
+          ]
+        },
+        {
+          "item": "Strawberry",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": [
+            "M"
+          ]
+        },
+        {
+          "item": "Chocolate",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": [
+            "M"
+          ]
+        },
+        {
+          "item": "Biscoff",
+          "variant": null,
+          "price_eur": 4.6,
+          "allergens": [
+            "M",
+            "S"
+          ]
+        },
+        {
+          "item": "Cookie Monster",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": [
+            "M",
+            "G"
+          ]
+        },
+        {
+          "item": "Oreo Cream",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G"
+          ]
+        },
+        {
+          "item": "Oreo Chocolate",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G"
+          ]
+        },
+        {
+          "item": "Brownie",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G",
+            "E"
+          ]
+        },
+        {
+          "item": "Kit Kat",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G"
+          ]
+        },
+        {
+          "item": "Kinder",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G"
+          ]
+        },
+        {
+          "item": "Kinder Bueno",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M",
+            "G",
+            "N"
+          ]
+        },
+        {
+          "item": "Milkybar",
+          "variant": null,
+          "price_eur": 4.7,
+          "allergens": [
+            "M"
+          ]
+        }
+      ],
+      "Floats": [
+        {
+          "item": "Float Coke",
+          "variant": null,
+          "price_eur": 5.0,
+          "allergens": [
+            "M"
+          ]
+        },
+        {
+          "item": "Float Orange",
+          "variant": null,
+          "price_eur": 5.0,
+          "allergens": [
+            "M"
+          ]
+        }
+      ],
+      "Ice Cream Scoops": [
+        {
+          "item": "Strawberry / Chocolate / Vanilla",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": [
+            "M"
+          ]
+        }
+      ],
+      "Smoothies": [
+        {
+          "item": "Blackberry Bliss (Mixed Red Berries)",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        }
+      ],
+      "Special Events": [
+        {
+          "item": "Private / Event Bookings",
+          "variant": null,
+          "price_eur": 15.0,
+          "allergens": []
+        }
+      ],
+      "Tostadas": [
+        {
+          "item": "With Oil",
+          "variant": null,
+          "price_eur": 1.2,
+          "allergens": [
+            "G"
+          ]
+        },
+        {
+          "item": "With Butter",
+          "variant": null,
+          "price_eur": 1.2,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "With Butter & Jam",
+          "variant": null,
+          "price_eur": 1.6,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "With Oil & Tomato",
+          "variant": null,
+          "price_eur": 1.6,
+          "allergens": [
+            "G"
+          ]
+        },
+        {
+          "item": "With Cheese & Tomato",
+          "variant": null,
+          "price_eur": 1.8,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        },
+        {
+          "item": "With Ham",
+          "variant": null,
+          "price_eur": 1.8,
+          "allergens": [
+            "G"
+          ]
+        },
+        {
+          "item": "With Cheese & Ham",
+          "variant": null,
+          "price_eur": 1.9,
+          "allergens": [
+            "G",
+            "M"
+          ]
+        }
+      ]
+    },
+    "Liqueurs & Shots": {
+      "Aperitifs & Liqueurs": [
+        {
+          "item": "Anise",
+          "variant": null,
+          "price_eur": 3.6,
+          "allergens": []
+        },
+        {
+          "item": "Baileys",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": []
+        },
+        {
+          "item": "Benedictine",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Cachaca 51",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Campari",
+          "variant": null,
+          "price_eur": 3.4,
+          "allergens": []
+        },
+        {
+          "item": "Royal Chambord",
+          "variant": null,
+          "price_eur": 5.0,
+          "allergens": []
+        },
+        {
+          "item": "Cointreau",
+          "variant": null,
+          "price_eur": 3.6,
+          "allergens": []
+        },
+        {
+          "item": "Disaronno",
+          "variant": null,
+          "price_eur": 4.1,
+          "allergens": []
+        },
+        {
+          "item": "Frangelico",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Grand Marnier",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Kahlua",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Licor 43",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Limoncello",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Malibu",
+          "variant": null,
+          "price_eur": 3.7,
+          "allergens": []
+        },
+        {
+          "item": "Mangaroca",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Martini Rosso / Bianco / Extra Dry",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Passoa",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": []
+        },
+        {
+          "item": "Peach Schnapps",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Pimms",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Punche",
+          "variant": null,
+          "price_eur": 3.2,
+          "allergens": []
+        },
+        {
+          "item": "Port",
+          "variant": null,
+          "price_eur": 3.2,
+          "allergens": []
+        },
+        {
+          "item": "Ricard",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Sambuca",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "Sherry",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Tia Maria",
+          "variant": null,
+          "price_eur": 3.6,
+          "allergens": []
+        },
+        {
+          "item": "Jagermeister",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        }
+      ],
+      "Shots": [
+        {
+          "item": "Baby Guinness",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "B52",
+          "variant": null,
+          "price_eur": 5.0,
+          "allergens": []
+        },
+        {
+          "item": "Salted Caramel Tequila",
+          "variant": null,
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Jaeger Bomb",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Cola Bottle (Punche & Lime)",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Jammie Dodger (Chambord & Cream)",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        }
+      ]
+    },
+    "Spirits": {
+      "Gin": [
+        {
+          "item": "Beefeater",
+          "variant": null,
+          "price_eur": 4.1,
+          "allergens": []
+        },
+        {
+          "item": "Gordons",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": []
+        },
+        {
+          "item": "Gordons Pink",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": []
+        },
+        {
+          "item": "Larios",
+          "variant": null,
+          "price_eur": 3.4,
+          "allergens": []
+        },
+        {
+          "item": "Tanqueray",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Tanqueray 0.0%",
+          "variant": null,
+          "price_eur": 4.6,
+          "allergens": []
+        },
+        {
+          "item": "Tanqueray Rangpur Lime",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Bombay Sapphire",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Hendricks",
+          "variant": null,
+          "price_eur": 6.5,
+          "allergens": []
+        },
+        {
+          "item": "Edinburgh Plum",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Edinburgh Rhubarb",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Puerto Indias Strawberry",
+          "variant": null,
+          "price_eur": 5.2,
+          "allergens": []
+        }
+      ],
+      "Gin — Whitley Neill": [
+        {
+          "item": "Blood Orange",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Gooseberry",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Lemongrass & Ginger",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Nettle",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Parma Violet",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Pink Grapefruit",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Raspberry",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Rhubarb & Ginger",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Alcohol Free Rhubarb & Ginger",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        }
+      ],
+      "Vodka": [
+        {
+          "item": "Smirnoff",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Absolut",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Absolut Mandrin",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Absolut Vanilia",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Grey Goose",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Ciroc",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        }
+      ],
+      "Rum": [
+        {
+          "item": "Bacardi",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Brugal Anejo",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Captain Morgan Dark",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Captain Morgan Spiced",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Captain Morgan Black Spiced",
+          "variant": null,
+          "price_eur": 4.2,
+          "allergens": []
+        },
+        {
+          "item": "Kraken",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Bacardi Breezer",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        }
+      ],
+      "Tequila": [
+        {
+          "item": "Jose Cuervo",
+          "variant": null,
+          "price_eur": 3.5,
+          "allergens": []
+        },
+        {
+          "item": "818 Tequila Blanco",
+          "variant": null,
+          "price_eur": 7.5,
+          "allergens": []
+        },
+        {
+          "item": "Tequila Rose",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        }
+      ],
+      "Whiskey": [
+        {
+          "item": "J&B",
+          "variant": null,
+          "price_eur": 3.8,
+          "allergens": []
+        },
+        {
+          "item": "Red Label",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Famous Grouse",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Dewars",
+          "variant": null,
+          "price_eur": 4.0,
+          "allergens": []
+        },
+        {
+          "item": "Jameson",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Jack Daniel's",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Jack Daniel's Honey",
+          "variant": null,
+          "price_eur": 4.8,
+          "allergens": []
+        },
+        {
+          "item": "Jack Daniel's Tennessee Fire",
+          "variant": null,
+          "price_eur": 4.8,
+          "allergens": []
+        },
+        {
+          "item": "Southern Comfort",
+          "variant": null,
+          "price_eur": 3.9,
+          "allergens": []
+        },
+        {
+          "item": "Drambuie",
+          "variant": null,
+          "price_eur": 5.0,
+          "allergens": []
+        },
+        {
+          "item": "Laphroaig",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Bulleit",
+          "variant": null,
+          "price_eur": 5.5,
+          "allergens": []
+        },
+        {
+          "item": "Cardhu",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        },
+        {
+          "item": "Black Label",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        },
+        {
+          "item": "Woodford Reserve",
+          "variant": null,
+          "price_eur": 7.0,
+          "allergens": []
+        },
+        {
+          "item": "Makers Mark",
+          "variant": null,
+          "price_eur": 6.3,
+          "allergens": []
+        },
+        {
+          "item": "Glenfiddich 12",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        },
+        {
+          "item": "Bowmore 12",
+          "variant": null,
+          "price_eur": 10.5,
+          "allergens": []
+        },
+        {
+          "item": "Macallan 12",
+          "variant": null,
+          "price_eur": 11.0,
+          "allergens": []
+        }
+      ],
+      "Brandy": [
+        {
+          "item": "Brandy 103 / Magloire / Soberano",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        },
+        {
+          "item": "Torres 10",
+          "variant": null,
+          "price_eur": 3.2,
+          "allergens": []
+        },
+        {
+          "item": "Courvoisier / Martell",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Hennessy",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        },
+        {
+          "item": "Remy Martin",
+          "variant": null,
+          "price_eur": 6.0,
+          "allergens": []
+        },
+        {
+          "item": "Cognac 1866",
+          "variant": null,
+          "price_eur": 8.5,
+          "allergens": []
+        }
+      ]
+    },
+    "Hot Drinks": {
+      "Coffee": [
+        {
+          "item": "Solo / Americano",
+          "variant": null,
+          "price_eur": 1.4,
+          "allergens": []
+        },
+        {
+          "item": "Solo / Americano",
+          "variant": "Large",
+          "price_eur": 1.6,
+          "allergens": []
+        },
+        {
+          "item": "Cortado",
+          "variant": null,
+          "price_eur": 1.5,
+          "allergens": []
+        },
+        {
+          "item": "Bombon",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Belmonte",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": []
+        },
+        {
+          "item": "Carajillo",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": []
+        },
+        {
+          "item": "White Coffee",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "White Coffee",
+          "variant": "Large",
+          "price_eur": 2.0,
+          "allergens": []
+        },
+        {
+          "item": "Glass of Milk",
+          "variant": null,
+          "price_eur": 1.3,
+          "allergens": []
+        },
+        {
+          "item": "Cappuccino (Foam)",
+          "variant": null,
+          "price_eur": 1.9,
+          "allergens": []
+        },
+        {
+          "item": "Cappuccino (Foam)",
+          "variant": "Large",
+          "price_eur": 2.2,
+          "allergens": []
+        },
+        {
+          "item": "Cappuccino (Cream)",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Cappuccino (Cream)",
+          "variant": "Large",
+          "price_eur": 2.8,
+          "allergens": []
+        },
+        {
+          "item": "Hot Chocolate",
+          "variant": null,
+          "price_eur": 2.2,
+          "allergens": []
+        },
+        {
+          "item": "Hot Chocolate with Cream",
+          "variant": null,
+          "price_eur": 2.6,
+          "allergens": []
+        },
+        {
+          "item": "Hot Flavoured Coffee",
+          "variant": null,
+          "price_eur": 2.5,
+          "allergens": []
+        },
+        {
+          "item": "Ice Cream Coffee",
+          "variant": null,
+          "price_eur": 3.3,
+          "allergens": []
+        },
+        {
+          "item": "Iced Coffee",
+          "variant": null,
+          "price_eur": 2.3,
+          "allergens": []
+        },
+        {
+          "item": "Iced Flavoured Coffee",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": []
+        },
+        {
+          "item": "Iced Matcha",
+          "variant": null,
+          "price_eur": 2.8,
+          "allergens": []
+        }
+      ],
+      "Add Ons": [
+        {
+          "item": "Extra Shot",
+          "variant": null,
+          "price_eur": 1.0,
+          "allergens": []
+        },
+        {
+          "item": "Coffee Syrup",
+          "variant": null,
+          "price_eur": 0.5,
+          "allergens": []
+        },
+        {
+          "item": "Dash of Milk",
+          "variant": null,
+          "price_eur": 0.4,
+          "allergens": []
+        },
+        {
+          "item": "Dash of Honey",
+          "variant": null,
+          "price_eur": 0.5,
+          "allergens": []
+        }
+      ],
+      "Decaf — Sachet or Machine": [
+        {
+          "item": "Americano",
+          "variant": null,
+          "price_eur": 1.4,
+          "allergens": []
+        },
+        {
+          "item": "Americano",
+          "variant": "Large",
+          "price_eur": 1.6,
+          "allergens": []
+        },
+        {
+          "item": "White Coffee",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "White Coffee",
+          "variant": "Large",
+          "price_eur": 2.0,
+          "allergens": []
+        }
+      ],
+      "Liqueur Coffees": [
+        {
+          "item": "Irish Coffee",
+          "variant": null,
+          "price_eur": 6.6,
+          "allergens": []
+        },
+        {
+          "item": "Bailey's Coffee",
+          "variant": null,
+          "price_eur": 4.6,
+          "allergens": []
+        },
+        {
+          "item": "Bailey's Coffee with Cream",
+          "variant": null,
+          "price_eur": 5.1,
+          "allergens": []
+        },
+        {
+          "item": "Baileys Hot Chocolate",
+          "variant": null,
+          "price_eur": 4.5,
+          "allergens": []
+        },
+        {
+          "item": "Liqueur Coffee Base +",
+          "variant": null,
+          "price_eur": 3.0,
+          "allergens": []
+        }
+      ],
+      "Tea": [
+        {
+          "item": "Tea / Decaff Tea",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Earl Grey",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Green Tea",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Peppermint & Herbal",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Rooibos",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Fruit & Berry Teas",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Spiced / Chai Teas",
+          "variant": null,
+          "price_eur": 1.7,
+          "allergens": []
+        },
+        {
+          "item": "Afternoon Tea",
+          "variant": null,
+          "price_eur": 15.0,
+          "allergens": []
+        }
+      ]
+    }
+  }
+}

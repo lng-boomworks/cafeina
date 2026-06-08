@@ -1,9 +1,10 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { flattenMenu } from './utils/menu';
 
 const LOCALES = ['en', 'es'] as const;
-const MENU_CATEGORIES = ['cocktails', 'spirits', 'wine-beer', 'beverages', 'cakes-snacks'] as const;
+const BLOG_CATEGORIES = ['news', 'events', 'food-drink', 'behind-the-scenes'] as const;
 
 const offering = z.object({
   title: z.string(),
@@ -31,7 +32,7 @@ const value = z.object({
 
 const menuCategoryCard = z.object({
   title: z.string(),
-  slug: z.enum(MENU_CATEGORIES),
+  slug: z.string(),
   description: z.string().optional(),
   image: z.string().optional(),
   image_alt: z.string().optional(),
@@ -145,12 +146,21 @@ const pages = defineCollection({
   }),
 });
 
+// Single source of truth for the menu: src/data/cafeina_menu.json, authored in
+// a nested shape and flattened by `flattenMenu()` (see src/utils/menu.ts). Both
+// collections read that one file via the `file()` loader and validate it at
+// build sync. Categories are free strings (no enum) so new categories added to
+// the JSON "just work" across routes, nav, and sections.
+const MENU_SOURCE = './src/data/cafeina_menu.json';
+
 const menuItems = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/menuItems' }),
+  loader: file(MENU_SOURCE, { parser: (text) => flattenMenu(JSON.parse(text)).items }),
   schema: z.object({
-    category: z.enum(MENU_CATEGORIES),
+    id: z.string(),
+    category: z.string(),
     subcategory: z.string().optional(),
     name: z.string(),
+    variant: z.string().optional(),
     description: z.string().optional(),
     price: z.string().optional(),
     image: z.string().optional(),
@@ -158,6 +168,25 @@ const menuItems = defineCollection({
     order: z.number().default(100),
     locale: z.enum(LOCALES).default('en'),
     featured: z.boolean().optional(),
+    // Allergen codes the item CONTAINS (keys of allergen_legend).
+    allergens: z.array(z.string()).optional(),
+  }),
+});
+
+const menuCategories = defineCollection({
+  // Category objects key on `slug`; the file() loader needs an `id` per entry.
+  loader: file(MENU_SOURCE, {
+    parser: (text) =>
+      flattenMenu(JSON.parse(text)).categories.map((c) => ({ id: c.slug, ...c })),
+  }),
+  schema: z.object({
+    id: z.string(),
+    slug: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+    image: z.string().optional(),
+    image_alt: z.string().optional(),
+    order: z.number().default(100),
   }),
 });
 
@@ -214,4 +243,28 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { pages, menuItems, events, teamMembers, galleryImages, testimonials };
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
+    category: z.enum(BLOG_CATEGORIES),
+    tags: z.array(z.string()).default([]),
+    author: z.string().default('Millie & Callum'),
+    featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    originalSource: z
+      .object({
+        platform: z.string(),
+        url: z.string().url(),
+        publishedAt: z.coerce.date(),
+      })
+      .optional(),
+  }),
+});
+
+export const collections = { pages, menuItems, menuCategories, events, teamMembers, galleryImages, testimonials, blog };

@@ -23,6 +23,11 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     our: 'our',
     made_with: 'freshly made with the best ingredients',
     see_menu: 'See the menu',
+    menu_search_placeholder: 'Search dishes, drinks, ingredients…',
+    menu_filter: 'Filter',
+    menu_featured: 'Featured',
+    menu_clear: 'Clear',
+    menu_no_results: 'Nothing matches that search. Try a different term or clear the filters.',
   },
   es: {
     home: 'Inicio',
@@ -43,6 +48,11 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     our: 'nuestros',
     made_with: 'elaborados con los mejores ingredientes',
     see_menu: 'Ver la carta',
+    menu_search_placeholder: 'Busca platos, bebidas, ingredientes…',
+    menu_filter: 'Filtrar',
+    menu_featured: 'Destacados',
+    menu_clear: 'Borrar',
+    menu_no_results: 'No hay coincidencias. Prueba otro término o borra los filtros.',
   },
 };
 

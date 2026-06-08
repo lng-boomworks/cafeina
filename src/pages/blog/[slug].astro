@@ -1,0 +1,328 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { Navbar } from '../../components/Navbar';
+import { Footer } from '../../components/Footer';
+import { Button } from '../../components/Button';
+import { FadeIn } from '../../components/FadeIn';
+import { withBase } from '../../utils/url';
+import {
+  categoryLabel,
+  formatPostDate,
+  postHref,
+  postSlug,
+  resolveBlogImage,
+  type BlogPost,
+} from '../../utils/blog';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blog', ({ data }) => !data.draft);
+  return entries.map((entry) => ({
+    params: { slug: postSlug(entry) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: BlogPost;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+
+const heroImage = resolveBlogImage(data.heroImage);
+const formattedDate = formatPostDate(data.pubDate);
+const updatedDate = data.updatedDate ? formatPostDate(data.updatedDate) : null;
+const catLabel = categoryLabel(data.category);
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const related = allPosts
+  .filter((p) => p.id !== entry.id && p.data.category === data.category)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const seoDescription = data.description;
+const ogImage = heroImage ?? '/images/og-default.jpg';
+---
+
+<Base
+  title={`${data.title} — Cafeina`}
+  description={seoDescription}
+  ogImage={ogImage}
+  type="article"
+>
+  <Navbar client:load />
+  <main class="pt-[72px]">
+    <article>
+      {heroImage ? (
+        <header class="relative">
+          <div class="relative aspect-[16/10] md:aspect-[21/9] w-full overflow-hidden bg-teal-deep">
+            <img
+              src={withBase(heroImage)}
+              alt={data.heroImageAlt ?? data.title}
+              class="w-full h-full object-cover"
+              loading="eager"
+              onerror="this.style.display='none'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-teal-deep/80 via-teal-deep/40 to-teal-deep/10" aria-hidden="true"></div>
+          </div>
+          <div class="absolute inset-x-0 bottom-0">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 md:pb-16">
+              <div class="flex items-center gap-3 mb-5">
+                <a href={withBase('/blog')} class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white text-[11px] font-medium uppercase tracking-wide hover:bg-white/25 transition-colors">
+                  {catLabel}
+                </a>
+                <time datetime={data.pubDate.toISOString()} class="text-white/85 text-sm">
+                  {formattedDate}
+                </time>
+              </div>
+              <h1 class="text-white font-serif italic text-balance mb-4 max-w-3xl drop-shadow-sm">
+                {data.title}
+              </h1>
+              <p class="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed drop-shadow-sm">
+                {data.description}
+              </p>
+            </div>
+          </div>
+        </header>
+      ) : (
+        <header class="bg-cream">
+          <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-10 md:pb-14">
+            <a href={withBase('/blog')} class="inline-flex items-center gap-2 text-sage text-sm font-medium uppercase tracking-wide mb-6 hover:text-teal-deep transition-colors">
+              ← Back to Journal
+            </a>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-teal-pale text-teal-deep text-[11px] font-medium uppercase tracking-wide">
+                {catLabel}
+              </span>
+              <time datetime={data.pubDate.toISOString()} class="text-text-muted text-sm">
+                {formattedDate}
+              </time>
+            </div>
+            <h1 class="mb-5 font-serif italic text-balance">{data.title}</h1>
+            <p class="text-xl text-text-muted leading-relaxed">{data.description}</p>
+          </div>
+        </header>
+      )}
+
+      <div class="py-14 md:py-20 bg-white">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between flex-wrap gap-4 pb-8 mb-8 border-b border-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-teal-pale flex items-center justify-center text-teal-deep font-serif italic text-sm">
+                {data.author.slice(0, 1)}
+              </div>
+              <div>
+                <p class="text-sm font-medium text-teal-deep">{data.author}</p>
+                <p class="text-xs text-text-muted">Cafeina, La Marina</p>
+              </div>
+            </div>
+            {updatedDate && (
+              <p class="text-xs text-text-muted">Updated {updatedDate}</p>
+            )}
+          </div>
+
+          <div class="prose prose-lg prose-cafeina max-w-none">
+            <Content />
+          </div>
+
+          {data.tags.length > 0 && (
+            <div class="mt-12 pt-8 border-t border-border flex flex-wrap gap-2">
+              {data.tags.map((tag) => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-cream text-text-muted text-xs font-medium">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {data.originalSource && (
+            <p class="mt-6 text-sm text-text-muted">
+              Originally shared on {data.originalSource.platform} on {formatPostDate(data.originalSource.publishedAt)} ·{' '}
+              <a href={data.originalSource.url} target="_blank" rel="noopener noreferrer" class="text-teal-deep underline hover:no-underline">
+                View original post
+              </a>
+            </p>
+          )}
+
+          <div class="mt-14 flex flex-col sm:flex-row gap-4">
+            <Button href="/blog" variant="ghost">← More from the Journal</Button>
+            <Button href="/contact">Book a table</Button>
+          </div>
+        </div>
+      </div>
+
+      {related.length > 0 && (
+        <section class="py-16 md:py-20 bg-ivory">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeIn client:visible>
+              <h2 class="mb-10 font-serif italic text-center">You might also like</h2>
+            </FadeIn>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {related.map((r, i) => {
+                const img = resolveBlogImage(r.data.heroImage);
+                return (
+                  <FadeIn client:visible delay={(i % 3) * 0.06}>
+                    <a
+                      href={withBase(postHref(r))}
+                      class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(68,42,24,0.3)] transition-all duration-300 h-full"
+                    >
+                      <div class="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-teal-deep via-teal-mid to-teal-light">
+                        {img ? (
+                          <img
+                            src={withBase(img)}
+                            alt={r.data.heroImageAlt ?? r.data.title}
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                            loading="lazy"
+                            onerror="this.style.display='none'"
+                          />
+                        ) : (
+                          <div class="absolute inset-0 flex items-center justify-center p-6">
+                            <span class="font-serif italic text-white/90 text-xl text-center leading-tight">
+                              {r.data.title.split(':')[0]}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                          <span class="inline-flex items-center px-3 py-1 rounded-full bg-teal-pale text-teal-deep text-[11px] font-medium uppercase tracking-wide">
+                            {categoryLabel(r.data.category)}
+                          </span>
+                          <time datetime={r.data.pubDate.toISOString()} class="text-xs text-text-muted">
+                            {formatPostDate(r.data.pubDate)}
+                          </time>
+                        </div>
+                        <h3 class="mb-3 font-serif italic text-balance group-hover:text-teal-mid transition-colors">
+                          {r.data.title}
+                        </h3>
+                        <p class="text-[15px] text-text-muted leading-relaxed line-clamp-3">
+                          {r.data.description}
+                        </p>
+                      </div>
+                    </a>
+                  </FadeIn>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section class="py-24 bg-teal-deep text-center px-4">
+        <FadeIn client:visible class="max-w-3xl mx-auto">
+          <h2 class="text-white mb-6 font-serif italic">Come and see us at Cafeina.</h2>
+          <p class="text-teal-light text-lg mb-10">Open Mon–Sat from 9am, Sun from 5pm — coffee, cakes and cocktails in La Marina.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <Button variant="white" href="/contact">Book a table</Button>
+            <Button variant="outline-white" href="/menu">See the menu</Button>
+          </div>
+        </FadeIn>
+      </section>
+    </article>
+  </main>
+  <Footer client:load />
+</Base>
+
+<style is:global>
+  .prose-cafeina {
+    color: var(--color-text-body);
+    font-family: var(--font-sans);
+    font-weight: 300;
+  }
+  .prose-cafeina p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 1.4em;
+  }
+  .prose-cafeina h2 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-teal-deep);
+    font-weight: 500;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.2;
+  }
+  .prose-cafeina h3 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-teal-deep);
+    font-weight: 500;
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+    font-size: clamp(20px, 2.4vw, 24px);
+  }
+  .prose-cafeina a {
+    color: var(--color-teal-deep);
+    text-decoration: underline;
+    text-decoration-color: var(--color-teal-light);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+  .prose-cafeina a:hover {
+    color: var(--color-teal-mid);
+  }
+  .prose-cafeina strong {
+    color: var(--color-teal-deep);
+    font-weight: 600;
+  }
+  .prose-cafeina em {
+    font-style: italic;
+  }
+  .prose-cafeina ul,
+  .prose-cafeina ol {
+    margin: 1.2em 0;
+    padding-left: 1.4em;
+  }
+  .prose-cafeina ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-cafeina ul li {
+    position: relative;
+    padding-left: 1.4em;
+    margin-bottom: 0.6em;
+    line-height: 1.75;
+  }
+  .prose-cafeina ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-teal-mid);
+  }
+  .prose-cafeina ol li {
+    margin-bottom: 0.6em;
+    line-height: 1.75;
+  }
+  .prose-cafeina blockquote {
+    border-left: 3px solid var(--color-teal-mid);
+    padding: 0.4em 0 0.4em 1.4em;
+    margin: 1.6em 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 1.05em;
+  }
+  .prose-cafeina hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 2.4em 0;
+  }
+  .prose-cafeina img {
+    border-radius: 16px;
+    margin: 1.6em 0;
+  }
+  .prose-cafeina code {
+    background: var(--color-cream);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.92em;
+  }
+</style>

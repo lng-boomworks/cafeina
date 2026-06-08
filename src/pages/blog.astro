@@ -2,9 +2,12 @@
 import Base from '../layouts/Base.astro';
 import { BlogPage } from '../components/pages/BlogPage';
 import { getEntry } from 'astro:content';
+import { getPublishedBlogPosts, toSummary } from '../utils/blog';
 
 const page = await getEntry('pages', 'blog');
 const d = page.data;
+
+const posts = (await getPublishedBlogPosts()).map(toSummary);
 ---
 
 <Base title={d.seo_title ?? d.title} description={d.seo_description}>
@@ -13,11 +16,10 @@ const d = page.data;
     heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
-    introHeading={d.intro_heading}
-    introBody={d.intro_body}
-    introImage={d.intro_image}
-    introImageAlt={d.intro_image_alt}
+    emptyHeading={d.intro_heading}
+    emptyBody={d.intro_body}
     ctaHeading={d.cta_heading}
     ctaText={d.cta_text}
+    posts={posts}
   />
 </Base>

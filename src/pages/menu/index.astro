@@ -1,21 +1,34 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { MenuLandingPage } from '../../components/pages/MenuLandingPage';
+import { MenuPage } from '../../components/pages/MenuPage';
 import { getEntry } from 'astro:content';
+import { getMenuData, getMenuNote } from '../../utils/menu';
 
+// Page-level copy (hero, CTA) still comes from the menu page entry.
 const page = await getEntry('pages', 'menu');
-const d = page.data;
+const d = page?.data ?? {};
+
+// Menu data: the menuItems / menuCategories collections validate cafeina_menu.json
+// at build sync; getMenuData reads the same file and returns sorted, locale-filtered
+// data matching the client island's types.
+const { categories, items } = getMenuData('en');
+const note = getMenuNote();
 ---
 
-<Base title={d.seo_title ?? d.title} description={d.seo_description}>
-  <MenuLandingPage
+<Base
+  title={d.seo_title ?? d.title ?? 'Our Menu — Cafeina La Marina'}
+  description={d.seo_description ?? 'Cocktails, spirits, wine & beer, beverages and cakes — freshly made at Cafeina in La Marina.'}
+>
+  <MenuPage
     client:load
     heroLabel={d.hero_label}
     heroHeading={d.hero_heading}
     heroSubheading={d.hero_subheading}
     heroLandscapeImage={d.hero_landscape_image}
     heroLandscapeImageAlt={d.hero_landscape_image_alt}
-    categories={d.menu_categories}
+    categories={categories}
+    items={items}
+    note={note}
     ctaHeading={d.cta_heading}
     ctaText={d.cta_text}
   />
