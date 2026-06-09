@@ -3,7 +3,6 @@ import { Footer } from "../Footer";
 import { PageHero } from "../PageHero";
 import { ClosingCTA } from "../ClosingCTA";
 import { FadeIn } from "../FadeIn";
-import { LandscapeBanner } from "../LandscapeBanner";
 import { withBase } from "../../utils/url";
 
 export interface GalleryImageData {
@@ -43,13 +42,13 @@ export function GalleryPage({
     <>
       <Navbar />
       <main>
-        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
-
-        {heroLandscapeImage && (
-          <section className="bg-cream pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
-            <LandscapeBanner image={heroLandscapeImage} imageAlt={heroLandscapeImageAlt ?? "Gallery of Cafeina"} aspect="wide" priority parallax />
-          </section>
-        )}
+        <PageHero
+          label={heroLabel}
+          heading={heroHeading}
+          subheading={heroSubheading}
+          image={heroLandscapeImage ?? "/images/hero/gallery-banner"}
+          imageAlt={heroLandscapeImageAlt ?? "A warm Cafeina flatlay — drinks, photos and candlelight"}
+        />
 
         <section className="py-12 md:py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

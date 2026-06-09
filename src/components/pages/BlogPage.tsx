@@ -150,7 +150,7 @@ export function BlogPage({
     <>
       <Navbar />
       <main>
-        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
+        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} image="/images/hero/coffee-moment" imageAlt="A freshly poured coffee at Cafeina" />
 
         {hasPosts ? (
           <>

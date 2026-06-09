@@ -7,8 +7,8 @@ seo_description: "Discover Caféina's story. A family-owned café in La Marina u
 hero_label: "a family tradition"
 hero_heading: "serving with love"
 hero_subheading: "since 2009"
-hero_image: "/images/hero/street-entrance.jpeg"
-hero_image_alt: "The Cafeina storefront on Calle Luis de Gongora"
+hero_image: "/images/hero/cafe-interior"
+hero_image_alt: "Inside Cafeina — warm light and eclectic vintage furniture"
 
 story_heading: "our story"
 story_body: |

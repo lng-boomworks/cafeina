@@ -3,7 +3,6 @@ import { Footer } from "../Footer";
 import { FadeIn } from "../FadeIn";
 import { PageHero } from "../PageHero";
 import { ClosingCTA } from "../ClosingCTA";
-import { LandscapeBanner } from "../LandscapeBanner";
 import { withBase } from "../../utils/url";
 import type { TeamMember } from "../../utils/team";
 
@@ -37,19 +36,13 @@ export function TeamPage({
     <>
       <Navbar />
       <main>
-        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
-
-        {heroLandscapeImage && (
-          <section className="bg-cream pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
-            <LandscapeBanner
-              image={heroLandscapeImage}
-              imageAlt={heroLandscapeImageAlt ?? "The Cafeina team at work"}
-              aspect="wide"
-              priority
-              parallax
-            />
-          </section>
-        )}
+        <PageHero
+          label={heroLabel}
+          heading={heroHeading}
+          subheading={heroSubheading}
+          image={heroLandscapeImage ?? "/images/hero/team-banner"}
+          imageAlt={heroLandscapeImageAlt ?? "The Cafeina team at work"}
+        />
 
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

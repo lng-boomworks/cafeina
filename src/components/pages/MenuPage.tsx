@@ -2,7 +2,6 @@ import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { PageHero } from "../PageHero";
 import { ClosingCTA } from "../ClosingCTA";
-import { LandscapeBanner } from "../LandscapeBanner";
 import { MenuExplorer } from "../MenuExplorer";
 import type { MenuCategory, MenuItemData } from "../../utils/menu";
 
@@ -35,13 +34,13 @@ export function MenuPage({
     <>
       <Navbar />
       <main>
-        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
-
-        {heroLandscapeImage && (
-          <section className="bg-cream pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
-            <LandscapeBanner image={heroLandscapeImage} imageAlt={heroLandscapeImageAlt ?? "Cafeina menu"} aspect="wide" priority parallax />
-          </section>
-        )}
+        <PageHero
+          label={heroLabel}
+          heading={heroHeading}
+          subheading={heroSubheading}
+          image={heroLandscapeImage ?? "/images/hero/menu-banner"}
+          imageAlt={heroLandscapeImageAlt ?? "Cocktails and drinks on the bar at Cafeina"}
+        />
 
         <MenuExplorer categories={categories} items={items} note={note} />
 

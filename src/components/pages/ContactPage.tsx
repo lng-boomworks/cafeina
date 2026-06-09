@@ -47,7 +47,7 @@ export function ContactPage({
     <>
       <Navbar />
       <main>
-        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
+        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} image="/images/hero/cta-barista" imageAlt="A warm welcome at the Cafeina bar" />
 
         <div className="bg-cream pb-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
