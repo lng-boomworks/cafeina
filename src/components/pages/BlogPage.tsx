@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { FadeIn } from "../FadeIn";
-import { Button } from "../Button";
+import { PageHero } from "../PageHero";
+import { ClosingCTA } from "../ClosingCTA";
 import { withBase } from "../../utils/url";
 import { ArrowRight } from "lucide-react";
 import type { BlogPostSummary } from "../../utils/blog";
@@ -33,18 +34,11 @@ function PostCardImage({ post }: { post: BlogPostSummary }) {
 
   if (showPlaceholder) {
     return (
-      <div className="relative w-full h-full bg-gradient-to-br from-teal-deep via-teal-mid to-teal-light flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full bg-gradient-to-br from-espresso via-teal-mid to-brass flex items-center justify-center overflow-hidden">
         <span className="font-serif italic text-white/90 text-[clamp(22px,3vw,30px)] text-center px-6 leading-tight">
           {post.title.split(":")[0]}
         </span>
-        <div
-          className="absolute inset-0 opacity-[0.12] pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0, transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.4) 0, transparent 40%)",
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 grain" aria-hidden="true" />
       </div>
     );
   }
@@ -53,7 +47,7 @@ function PostCardImage({ post }: { post: BlogPostSummary }) {
     <img
       src={withBase(post.heroImage!)}
       alt={post.heroImageAlt ?? post.title}
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
       loading="lazy"
       onError={() => setFailed(true)}
     />
@@ -79,29 +73,24 @@ function FeaturedCard({ post }: { post: BlogPostSummary }) {
   return (
     <a
       href={withBase(post.href)}
-      className="group grid md:grid-cols-12 gap-0 overflow-hidden rounded-[28px] border border-border bg-white shadow-[0_20px_60px_-30px_rgba(68,42,24,0.35)] hover:shadow-[0_30px_80px_-30px_rgba(68,42,24,0.45)] transition-all duration-300"
+      className="group grid md:grid-cols-12 gap-0 overflow-hidden rounded-[28px] border border-border bg-white shadow-[0_30px_70px_-40px_rgba(23,14,7,0.4)] hover:shadow-[0_40px_90px_-40px_rgba(23,14,7,0.5)] transition-all duration-300"
     >
-      <div className="md:col-span-7 relative aspect-[5/4] md:aspect-auto md:min-h-[420px] overflow-hidden">
+      <div className="md:col-span-7 relative aspect-[5/4] md:aspect-auto md:min-h-[440px] overflow-hidden">
         <PostCardImage post={post} />
         <div className="absolute top-5 left-5 flex items-center gap-2">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/90 backdrop-blur text-teal-deep text-[11px] font-semibold uppercase tracking-wide">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-brass text-espresso text-[11px] font-semibold uppercase tracking-wide">
             Featured
           </span>
           <CategoryTag label={post.categoryLabel} tone="outline" />
         </div>
       </div>
-      <div className="md:col-span-5 p-8 md:p-10 flex flex-col justify-center">
-        <time dateTime={post.pubDateISO} className="text-sm text-text-muted block mb-3">
-          {post.pubDate}
-        </time>
-        <h2 className="mb-4 font-serif italic text-balance group-hover:text-teal-mid transition-colors">
-          {post.title}
-        </h2>
-        <p className="text-[17px] text-text-muted leading-relaxed mb-6">
-          {post.description}
-        </p>
-        <span className="inline-flex items-center gap-2 text-teal-deep font-medium text-[15px] group-hover:gap-3 transition-all">
-          Read the post <ArrowRight className="w-4 h-4" />
+      <div className="md:col-span-5 p-8 md:p-11 flex flex-col justify-center">
+        <time dateTime={post.pubDateISO} className="eyebrow text-sage block mb-4">{post.pubDate}</time>
+        <h2 className="mb-4 font-serif italic text-balance group-hover:text-teal-mid transition-colors">{post.title}</h2>
+        <p className="text-[17px] text-text-muted leading-relaxed mb-6">{post.description}</p>
+        <span className="inline-flex items-center gap-2 text-teal-deep font-medium text-[15px]">
+          <span className="border-b border-brass/70 pb-0.5 group-hover:border-brass transition-colors">Read the post</span>
+          <ArrowRight className="w-4 h-4 text-brass transition-transform group-hover:translate-x-1" />
         </span>
       </div>
     </a>
@@ -112,7 +101,7 @@ function PostCard({ post }: { post: BlogPostSummary }) {
   return (
     <a
       href={withBase(post.href)}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(68,42,24,0.3)] transition-all duration-300"
+      className="group flex flex-col h-full overflow-hidden rounded-2xl border border-border bg-white hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(23,14,7,0.4)] transition-all duration-300"
     >
       <div className="aspect-[4/3] relative overflow-hidden">
         <PostCardImage post={post} />
@@ -120,18 +109,13 @@ function PostCard({ post }: { post: BlogPostSummary }) {
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center gap-3 mb-3">
           <CategoryTag label={post.categoryLabel} />
-          <time dateTime={post.pubDateISO} className="text-xs text-text-muted">
-            {post.pubDate}
-          </time>
+          <time dateTime={post.pubDateISO} className="text-xs text-text-muted">{post.pubDate}</time>
         </div>
-        <h3 className="mb-3 font-serif italic text-balance group-hover:text-teal-mid transition-colors">
-          {post.title}
-        </h3>
-        <p className="text-[15px] text-text-muted leading-relaxed line-clamp-3 mb-5">
-          {post.description}
-        </p>
-        <span className="mt-auto inline-flex items-center gap-2 text-teal-deep font-medium text-[14px] group-hover:gap-3 transition-all">
-          Read more <ArrowRight className="w-3.5 h-3.5" />
+        <h3 className="mb-3 font-serif italic text-balance group-hover:text-teal-mid transition-colors">{post.title}</h3>
+        <p className="text-[15px] text-text-muted leading-relaxed line-clamp-3 mb-5">{post.description}</p>
+        <span className="mt-auto inline-flex items-center gap-2 text-teal-deep font-medium text-[14px]">
+          <span className="border-b border-brass/70 pb-0.5 group-hover:border-brass transition-colors">Read more</span>
+          <ArrowRight className="w-3.5 h-3.5 text-brass transition-transform group-hover:translate-x-1" />
         </span>
       </div>
     </a>
@@ -160,29 +144,18 @@ export function BlogPage({
     return posts.some((p) => p.category === c.key);
   }).map((c) => (c.key === "all" ? { ...c, label: allCategoriesLabel } : c));
 
-  const filtered =
-    activeCategory === "all"
-      ? restAll
-      : restAll.filter((p) => p.category === activeCategory);
+  const filtered = activeCategory === "all" ? restAll : restAll.filter((p) => p.category === activeCategory);
 
   return (
     <>
       <Navbar />
-      <main className="pt-[72px]">
-        <section className="bg-cream py-20 md:py-28">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <FadeIn>
-              <span className="text-sage font-medium uppercase tracking-wide text-sm mb-4 block">{heroLabel}</span>
-              <h1 className="mb-6 font-serif italic">{heroHeading}</h1>
-              <p className="text-xl text-text-muted">{heroSubheading}</p>
-            </FadeIn>
-          </div>
-        </section>
+      <main>
+        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
 
         {hasPosts ? (
           <>
             {featured && (
-              <section className="py-16 md:py-20 bg-white">
+              <section className="py-14 md:py-20 bg-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                   <FadeIn>
                     <FeaturedCard post={featured} />
@@ -191,7 +164,7 @@ export function BlogPage({
               </section>
             )}
 
-            <section className={`${featured ? "pt-4 pb-20 md:pb-28" : "py-20 md:py-28"} bg-white`}>
+            <section className={`${featured ? "pt-2 pb-20 md:pb-28" : "py-20 md:py-28"} bg-white`}>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {visibleCategories.length > 2 && (
                   <FadeIn>
@@ -204,9 +177,7 @@ export function BlogPage({
                             type="button"
                             onClick={() => setActiveCategory(c.key)}
                             className={`px-4 py-2 rounded-full text-[13px] font-medium uppercase tracking-wide transition-all ${
-                              isActive
-                                ? "bg-teal-deep text-white shadow-sm"
-                                : "bg-teal-pale/50 text-teal-deep hover:bg-teal-pale"
+                              isActive ? "bg-espresso text-white shadow-sm" : "bg-white border border-border text-text-muted hover:border-teal-mid hover:text-teal-deep"
                             }`}
                           >
                             {c.label}
@@ -217,18 +188,14 @@ export function BlogPage({
                   </FadeIn>
                 )}
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {filtered.map((post, i) => (
-                    <FadeIn key={post.slug} delay={(i % 3) * 0.05}>
-                      <PostCard post={post} />
-                    </FadeIn>
+                <FadeIn stagger={0.06} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  {filtered.map((post) => (
+                    <PostCard key={post.slug} post={post} />
                   ))}
-                </div>
+                </FadeIn>
 
                 {filtered.length === 0 && (
-                  <p className="text-center text-text-muted text-lg mt-12">
-                    Nothing in that category yet — try another one.
-                  </p>
+                  <p className="text-center text-text-muted text-lg mt-12">Nothing in that category yet — try another one.</p>
                 )}
               </div>
             </section>
@@ -239,25 +206,20 @@ export function BlogPage({
               <FadeIn>
                 <div className="relative overflow-hidden rounded-[24px] border border-border bg-cream/40 p-10 md:p-14 text-center">
                   <h2 className="mb-4 font-serif italic">{emptyHeading}</h2>
-                  <p className="text-lg leading-relaxed text-text-muted max-w-prose mx-auto">
-                    {emptyBody}
-                  </p>
+                  <p className="text-lg leading-relaxed text-text-muted max-w-prose mx-auto">{emptyBody}</p>
                 </div>
               </FadeIn>
             </div>
           </section>
         )}
 
-        <section className="py-24 bg-teal-deep text-center px-4">
-          <FadeIn className="max-w-3xl mx-auto">
-            <h2 className="text-white mb-6 font-serif italic">{ctaHeading}</h2>
-            <p className="text-teal-light text-lg mb-10">{ctaText}</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="white" href="/contact">Say hola</Button>
-              <Button variant="outline-white" href="/menu">See the menu</Button>
-            </div>
-          </FadeIn>
-        </section>
+        <ClosingCTA
+          heading={ctaHeading}
+          text={ctaText}
+          eyebrow="the journal"
+          primary={{ label: "Say hola", href: "/contact" }}
+          secondary={{ label: "See the menu", href: "/menu" }}
+        />
       </main>
       <Footer />
     </>

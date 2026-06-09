@@ -3,6 +3,7 @@ import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
+import { PageHero } from "../PageHero";
 import { Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
 
 interface ContactPageProps {
@@ -45,16 +46,8 @@ export function ContactPage({
   return (
     <>
       <Navbar />
-      <main className="pt-[72px]">
-        <section className="bg-cream py-16 md:py-24 text-center">
-          <div className="max-w-3xl mx-auto px-4">
-            <FadeIn>
-              <span className="text-sage font-medium uppercase tracking-wide text-sm mb-4 block">{heroLabel}</span>
-              <h1 className="mb-6 font-serif italic">{heroHeading}</h1>
-              <p className="text-xl text-text-muted">{heroSubheading}</p>
-            </FadeIn>
-          </div>
-        </section>
+      <main>
+        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
 
         <div className="bg-cream pb-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -78,12 +71,12 @@ export function ContactPage({
                     <div className="font-medium text-teal-deep group-hover:underline">{displayPhone}</div>
                   </div>
                 </a>
-                <div className="flex items-center gap-4 p-6 bg-teal-deep text-white rounded-2xl">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-4 p-6 bg-espresso text-white rounded-2xl grain overflow-hidden relative">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 relative">
+                    <Clock className="w-5 h-5 text-brass" />
                   </div>
-                  <div>
-                    <div className="text-sm text-teal-light/80 mb-1">Open hours</div>
+                  <div className="relative">
+                    <div className="eyebrow text-brass-soft mb-1.5">Open hours</div>
                     <div className="font-medium leading-relaxed">
                       {hours.split("\n").map((line, i) => (
                         <div key={i}>{line}</div>

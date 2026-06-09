@@ -1,7 +1,8 @@
 import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { FadeIn } from "../FadeIn";
-import { Button } from "../Button";
+import { PageHero } from "../PageHero";
+import { ClosingCTA } from "../ClosingCTA";
 import { LandscapeBanner } from "../LandscapeBanner";
 import { withBase } from "../../utils/url";
 import type { TeamMember } from "../../utils/team";
@@ -35,16 +36,8 @@ export function TeamPage({
   return (
     <>
       <Navbar />
-      <main className="pt-[72px]">
-        <section className="bg-cream pt-20 md:pt-28 pb-10 md:pb-14">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <FadeIn>
-              <span className="text-sage font-medium uppercase tracking-wide text-sm mb-4 block">{heroLabel}</span>
-              <h1 className="mb-6 font-serif italic">{heroHeading}</h1>
-              <p className="text-xl text-text-muted">{heroSubheading}</p>
-            </FadeIn>
-          </div>
-        </section>
+      <main>
+        <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} />
 
         {heroLandscapeImage && (
           <section className="bg-cream pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
@@ -81,16 +74,7 @@ export function TeamPage({
           </div>
         </section>
 
-        <section className="py-24 bg-teal-deep text-center px-4">
-          <FadeIn className="max-w-3xl mx-auto">
-            <h2 className="text-white mb-6 font-serif italic">{ctaHeading}</h2>
-            <p className="text-teal-light text-lg mb-10">{ctaText}</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="white" href="/contact">Book a table</Button>
-              <Button variant="outline-white" href="tel:+34711051358">Call +34 711 05 13 58</Button>
-            </div>
-          </FadeIn>
-        </section>
+        <ClosingCTA heading={ctaHeading} text={ctaText} eyebrow="the people behind the café" />
       </main>
       <Footer />
     </>

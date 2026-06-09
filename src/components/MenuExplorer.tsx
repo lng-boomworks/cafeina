@@ -201,7 +201,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                   aria-current={isActive ? "true" : undefined}
                   className={`shrink-0 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[14px] font-medium transition-colors ${
                     isActive
-                      ? "bg-teal-deep text-cream"
+                      ? "bg-espresso text-cream"
                       : empty
                         ? "bg-white/40 text-text-muted/40 border border-border/50 cursor-not-allowed"
                         : "bg-white text-text-muted border border-border hover:border-teal-mid hover:text-teal-deep"
@@ -303,7 +303,7 @@ function FilterChip({
       aria-pressed={active}
       className={`rounded-full px-3.5 py-1.5 text-[13px] font-medium border transition-colors ${
         active
-          ? "bg-teal-deep text-cream border-teal-deep"
+          ? "bg-espresso text-cream border-espresso"
           : "bg-white text-text-muted border-border hover:border-teal-mid hover:text-teal-deep"
       }`}
     >

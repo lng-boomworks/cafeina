@@ -57,7 +57,7 @@ const ogImage = heroImage ?? '/images/og-default.jpg';
     <article>
       {heroImage ? (
         <header class="relative">
-          <div class="relative aspect-[16/10] md:aspect-[21/9] w-full overflow-hidden bg-teal-deep">
+          <div class="relative aspect-[16/10] md:aspect-[21/9] w-full overflow-hidden bg-espresso">
             <img
               src={withBase(heroImage)}
               alt={data.heroImageAlt ?? data.title}
@@ -65,7 +65,7 @@ const ogImage = heroImage ?? '/images/og-default.jpg';
               loading="eager"
               onerror="this.style.display='none'"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-teal-deep/80 via-teal-deep/40 to-teal-deep/10" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-espresso/85 via-espresso/45 to-espresso/15" aria-hidden="true"></div>
           </div>
           <div class="absolute inset-x-0 bottom-0">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 md:pb-16">
@@ -210,10 +210,15 @@ const ogImage = heroImage ?? '/images/og-default.jpg';
         </section>
       )}
 
-      <section class="py-24 bg-teal-deep text-center px-4">
-        <FadeIn client:visible class="max-w-3xl mx-auto">
+      <section class="py-24 bg-espresso text-center px-4 grain overflow-hidden relative">
+        <FadeIn client:visible class="max-w-3xl mx-auto relative">
+          <span class="inline-flex items-center gap-3 mb-6 text-brass-soft justify-center">
+            <span class="w-10 rule-brass"></span>
+            <span class="eyebrow">table service · till late</span>
+            <span class="w-10 rule-brass"></span>
+          </span>
           <h2 class="text-white mb-6 font-serif italic">Come and see us at Cafeina.</h2>
-          <p class="text-teal-light text-lg mb-10">Open Mon–Sat from 9am, Sun from 5pm — coffee, cakes and cocktails in La Marina.</p>
+          <p class="text-white/75 text-lg mb-10">Open Mon–Sat from 9am, Sun from 5pm — coffee, cakes and cocktails in La Marina.</p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="white" href="/contact">Book a table</Button>
             <Button variant="outline-white" href="/menu">See the menu</Button>
