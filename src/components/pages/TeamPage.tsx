@@ -4,16 +4,7 @@ import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
 import { LandscapeBanner } from "../LandscapeBanner";
 import { withBase } from "../../utils/url";
-
-export interface TeamMemberData {
-  name: string;
-  role?: string;
-  bio: string;
-  photo?: string;
-  photo_alt?: string;
-  order?: number;
-  placeholder?: boolean;
-}
+import type { TeamMember } from "../../utils/team";
 
 interface TeamPageProps {
   heroLabel?: string;
@@ -23,7 +14,7 @@ interface TeamPageProps {
   heroLandscapeImageAlt?: string;
   introHeading?: string;
   introBody?: string;
-  members?: TeamMemberData[];
+  members?: TeamMember[];
   ctaHeading?: string;
   ctaText?: string;
 }
@@ -68,43 +59,22 @@ export function TeamPage({
         )}
 
         <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             {(introHeading || introBody) && (
-              <FadeIn className="max-w-2xl mx-auto text-center mb-16">
+              <FadeIn className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
                 {introHeading && <h2 className="mb-4 font-serif italic">{introHeading}</h2>}
                 {introBody && <p className="text-lg text-text-muted leading-relaxed">{introBody}</p>}
               </FadeIn>
             )}
 
-            <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
+            <div className="flex flex-wrap justify-center gap-8 md:gap-10">
               {sorted.map((member, i) => (
-                <FadeIn key={member.name} delay={i * 0.1}>
-                  <div className="text-center">
-                    <div className="aspect-square rounded-[24px] overflow-hidden border border-border/50 mb-6 bg-teal-pale">
-                      {member.photo && !member.placeholder ? (
-                        <img
-                          src={withBase(member.photo)}
-                          alt={member.photo_alt ?? member.name}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      ) : member.photo ? (
-                        <img
-                          src={withBase(member.photo)}
-                          alt={member.photo_alt ?? member.name}
-                          className="w-full h-full object-cover opacity-70"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-text-muted/60 text-sm">
-                          {member.photo_alt ?? member.name}
-                        </div>
-                      )}
-                    </div>
-                    <h3 className="text-2xl mb-1 font-serif">{member.name}</h3>
-                    {member.role && <p className="text-teal-mid font-medium mb-4">{member.role}</p>}
-                    <p className="text-text-muted leading-relaxed">{member.bio}</p>
-                  </div>
+                <FadeIn
+                  key={member.id ?? member.name}
+                  delay={i * 0.1}
+                  className="w-full sm:w-[340px] max-w-[380px]"
+                >
+                  <TeamCard member={member} />
                 </FadeIn>
               ))}
             </div>
@@ -124,5 +94,43 @@ export function TeamPage({
       </main>
       <Footer />
     </>
+  );
+}
+
+function TeamCard({ member }: { member: TeamMember }) {
+  const initial = member.name.trim().charAt(0).toUpperCase();
+  return (
+    <article className="group h-full flex flex-col bg-cream/40 rounded-[28px] border border-border overflow-hidden shadow-[0_18px_50px_-30px_rgba(68,42,24,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-28px_rgba(68,42,24,0.45)]">
+      <div className="aspect-[4/5] overflow-hidden bg-teal-pale relative">
+        {member.photo ? (
+          <img
+            src={withBase(member.photo)}
+            alt={member.photo_alt ?? member.name}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center font-serif text-teal-deep/35 select-none"
+            aria-hidden="true"
+            style={{ fontSize: "clamp(72px, 18vw, 120px)" }}
+          >
+            {initial}
+          </div>
+        )}
+      </div>
+      <div className="p-7 md:p-8 flex flex-col flex-1">
+        <h3 className="text-2xl font-serif text-teal-deep leading-tight">{member.name}</h3>
+        {member.role && (
+          <p className="text-[13px] uppercase tracking-wide text-teal-mid font-medium mt-1.5">{member.role}</p>
+        )}
+        {member.tagline && (
+          <p className="font-serif italic text-text-muted mt-3 leading-snug">“{member.tagline}”</p>
+        )}
+        {member.bio && (
+          <p className="text-[15px] text-text-muted leading-relaxed mt-4">{member.bio}</p>
+        )}
+      </div>
+    </article>
   );
 }

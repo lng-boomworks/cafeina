@@ -204,11 +204,17 @@ const events = defineCollection({
   }),
 });
 
+// Single source of truth for the team: src/data/cafeina_team.json holds
+// `{ page: {...}, members: [...] }`. The collection loads + validates the
+// members array at build sync (mirrors the menu collections); page copy is read
+// via src/utils/team.ts.
 const teamMembers = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/teamMembers' }),
+  loader: file('./src/data/cafeina_team.json', { parser: (text) => JSON.parse(text).members }),
   schema: z.object({
+    id: z.string(),
     name: z.string(),
     role: z.string().optional(),
+    tagline: z.string().optional(),
     bio: z.string(),
     photo: z.string().optional(),
     photo_alt: z.string().optional(),

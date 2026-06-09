@@ -1,17 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import { TeamPage } from '../components/pages/TeamPage';
-import { getEntry, getCollection } from 'astro:content';
+import { getTeamPage, getTeamMembers } from '../utils/team';
 
-const page = await getEntry('pages', 'team');
-const d = page.data;
-
-const members = (await getCollection('teamMembers', (entry) => entry.data.locale === 'en'))
-  .map((e) => e.data)
-  .sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
+// Single source of truth: src/data/cafeina_team.json (validated by the
+// teamMembers collection at build sync). Page copy + members both come from it.
+const d = getTeamPage();
+const members = getTeamMembers('en');
 ---
 
-<Base title={d.seo_title ?? d.title} description={d.seo_description}>
+<Base title={d.seo_title ?? 'Meet the team — Cafeina La Marina'} description={d.seo_description}>
   <TeamPage
     client:load
     heroLabel={d.hero_label}
