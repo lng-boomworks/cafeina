@@ -307,11 +307,14 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                   className="mb-16 last:mb-0"
                 >
                   <FadeIn className="mb-8">
-                    <div className="flex items-center gap-3.5 mb-3">
+                    <div className="flex items-center gap-3 md:gap-4 mb-3">
                       {iconSrc && (
-                        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-pale ring-1 ring-brass/30 shrink-0 overflow-hidden">
-                          <img src={withBase(iconSrc)} alt="" aria-hidden="true" className="w-9 h-9 object-contain" />
-                        </span>
+                        <img
+                          src={withBase(iconSrc)}
+                          alt=""
+                          aria-hidden="true"
+                          className="w-20 h-20 md:w-24 md:h-24 object-contain shrink-0 -ml-1"
+                        />
                       )}
                       <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
                     </div>
