@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, X, SlidersHorizontal, Info } from "lucide-react";
+import { Search, X, SlidersHorizontal, Info, BookOpen } from "lucide-react";
 import { MenuItem } from "./MenuItem";
 import { FadeIn } from "./FadeIn";
+import { MenuGallery, type MenuPage } from "./MenuGallery";
 import {
   groupBySubcategory,
   presentAllergens,
@@ -9,7 +10,6 @@ import {
   type MenuCategory,
   type MenuItemData,
 } from "../utils/menu";
-import { withBase } from "../utils/url";
 
 interface MenuExplorerProps {
   categories: MenuCategory[];
@@ -21,22 +21,26 @@ interface MenuExplorerProps {
 // Navbar (72px) + sticky category bar (~58px). Sections clear this when jumped to.
 const NAV_OFFSET = 132;
 
-// Stylised printed-menu artwork, used as a faint per-category background watermark.
-// Keyed by category slug; extension-less (WebP+JPG). Categories with no entry
-// (e.g. cocktails) simply render on the warm paper with no watermark.
-const MENU_ART: Record<string, string> = {
-  "cold-drinks-beers-wine": "/images/menu/cold-drinks-beers-wine-menu",
-  "food-treats": "/images/menu/food-treats-menu",
-  "liqueurs-shots": "/images/menu/liqueurs-shots-menu",
-  spirits: "/images/menu/spirits-menu",
-  "hot-drinks": "/images/menu/hot-drinks-menu",
-};
+// Categories that have a stylised printed-menu page rendered under
+// /images/menu/full/<slug>.{webp,jpg}. Used for the full-menu lightbox.
+const MENU_PAGE_SLUGS = new Set([
+  "cocktails",
+  "cold-drinks-beers-wine",
+  "food-treats",
+  "liqueurs-shots",
+  "spirits",
+  "hot-drinks",
+]);
 
 export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
   const [query, setQuery] = useState("");
   const [exclude, setExclude] = useState<string[]>([]); // allergen codes to avoid
   const [featuredOnly, setFeaturedOnly] = useState(false);
   const [active, setActive] = useState<string>(categories[0]?.slug ?? "");
+
+  // Full-menu lightbox
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const pillRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -47,6 +51,22 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
   const q = query.trim().toLowerCase();
   const isFiltering = q !== "" || exclude.length > 0 || featuredOnly;
   const hasFeatured = items.some((i) => i.featured);
+
+  // Designed menu pages for the lightbox (only categories with a rendered page).
+  const menuPages = useMemo<MenuPage[]>(
+    () =>
+      categories
+        .filter((c) => MENU_PAGE_SLUGS.has(c.slug))
+        .map((c) => ({ slug: c.slug, title: c.title, image: `/images/menu/full/${c.slug}` })),
+    [categories],
+  );
+  const hasGallery = menuPages.length > 0;
+
+  const openGallery = (slug?: string) => {
+    const i = slug ? menuPages.findIndex((p) => p.slug === slug) : 0;
+    setGalleryIndex(i < 0 ? 0 : i);
+    setGalleryOpen(true);
+  };
 
   const perCategory = useMemo(() => {
     const matches = (it: MenuItemData) => {
@@ -128,9 +148,22 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
 
   return (
     <div>
-      {/* Controls — search + allergen filters (scrolls away above the sticky bar) */}
+      {/* Controls — full-menu link + search + allergen filters (scrolls away above the sticky bar) */}
       <section className="bg-white pt-4 pb-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {hasGallery && (
+            <div className="flex justify-center mb-5">
+              <button
+                type="button"
+                onClick={() => openGallery()}
+                className="group inline-flex items-center gap-2.5 rounded-full bg-espresso text-cream pl-5 pr-6 py-2.5 text-[14px] font-medium hover:bg-espresso-soft transition-colors shadow-[0_14px_30px_-18px_rgba(23,14,7,0.9)]"
+              >
+                <BookOpen className="w-4 h-4 text-brass" />
+                View the full menu
+              </button>
+            </div>
+          )}
+
           <FadeIn className="bg-ivory border border-border rounded-[28px] p-5 sm:p-6 shadow-[0_18px_50px_-30px_rgba(68,42,24,0.35)]">
             <label className="relative block">
               <span className="sr-only">Search the menu</span>
@@ -230,11 +263,11 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
         </div>
       </div>
 
-      {/* Sections — warm paper with a faint per-category menu-art watermark */}
-      <div className="bg-ivory grain">
-        {total === 0 ? (
-          <section className="py-20">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Sections — warm paper */}
+      <section className="py-12 md:py-16 bg-ivory grain">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {total === 0 ? (
+            <div className="text-center py-20">
               <p className="text-lg text-text-muted mb-4">
                 Nothing matches that search. Try a different term or clear the filters.
               </p>
@@ -246,30 +279,37 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                 <X className="w-4 h-4" /> Clear filters
               </button>
             </div>
-          </section>
-        ) : (
-          perCategory.map(({ category, items: catItems }, ci) => {
-            if (catItems.length === 0) return null;
-            const groups = groupBySubcategory(catItems, category.title);
-            const artBase = MENU_ART[category.slug];
-            const side = ci % 2 === 0 ? "right" : "left";
-            return (
-              <section
-                key={category.slug}
-                id={category.slug}
-                data-slug={category.slug}
-                ref={(el) => (sectionRefs.current[category.slug] = el)}
-                style={{ scrollMarginTop: `${NAV_OFFSET}px` }}
-                className="relative overflow-hidden py-14 md:py-20"
-              >
-                {artBase && <MenuWatermark base={artBase} side={side} />}
-                <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          ) : (
+            perCategory.map(({ category, items: catItems }) => {
+              if (catItems.length === 0) return null;
+              const groups = groupBySubcategory(catItems, category.title);
+              const hasPage = MENU_PAGE_SLUGS.has(category.slug);
+              return (
+                <section
+                  key={category.slug}
+                  id={category.slug}
+                  data-slug={category.slug}
+                  ref={(el) => (sectionRefs.current[category.slug] = el)}
+                  style={{ scrollMarginTop: `${NAV_OFFSET}px` }}
+                  className="mb-16 last:mb-0"
+                >
                   <FadeIn className="mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
                     {category.description && (
                       <p className="text-text-muted leading-relaxed mt-3 max-w-2xl">{category.description}</p>
                     )}
-                    <div className="w-12 h-[2px] bg-teal-mid mt-5" />
+                    <div className="flex items-center gap-4 mt-5">
+                      <div className="w-12 h-[2px] bg-teal-mid" />
+                      {hasPage && (
+                        <button
+                          type="button"
+                          onClick={() => openGallery(category.slug)}
+                          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-sage hover:text-teal-deep transition-colors"
+                        >
+                          <BookOpen className="w-3.5 h-3.5" /> View the printed page
+                        </button>
+                      )}
+                    </div>
                   </FadeIn>
 
                   {Array.from(groups.entries()).map(([group, groupItems], gi) => (
@@ -294,37 +334,20 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                       </div>
                     </FadeIn>
                   ))}
-                </div>
-              </section>
-            );
-          })
-        )}
-      </div>
-    </div>
-  );
-}
+                </section>
+              );
+            })
+          )}
+        </div>
+      </section>
 
-/**
- * Faint, blurred, multiply-blended menu artwork anchored to one side of a
- * category section and masked toward the reading column, so the illustrations
- * read as ambient parchment texture without disturbing the live menu text.
- */
-function MenuWatermark({ base, side }: { base: string; side: "left" | "right" }) {
-  const isRight = side === "right";
-  const fade = `linear-gradient(to ${isRight ? "left" : "right"}, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 35%, transparent 80%)`;
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden select-none">
-      <picture>
-        <source srcSet={withBase(`${base}.webp`)} type="image/webp" />
-        <img
-          src={withBase(`${base}.jpg`)}
-          alt=""
-          className={`absolute top-1/2 -translate-y-1/2 h-[130%] w-auto max-w-none opacity-[0.08] blur-[1.2px] [mix-blend-mode:multiply] ${
-            isRight ? "right-0 translate-x-[18%]" : "left-0 -translate-x-[18%]"
-          }`}
-          style={{ WebkitMaskImage: fade, maskImage: fade }}
-        />
-      </picture>
+      <MenuGallery
+        pages={menuPages}
+        index={galleryIndex}
+        open={galleryOpen}
+        onClose={() => setGalleryOpen(false)}
+        onIndexChange={setGalleryIndex}
+      />
     </div>
   );
 }

@@ -19,7 +19,7 @@ story_body: |
   Our mission is simple: to add value to your visits and elevate the level of service. We're pouring the same care Maria brought into every pot of coffee, every plate of cake, and every quiet afternoon spent over a good conversation — and we're building on it with fresh ideas, new events, and a cocktail list we're genuinely proud of.
 
   Join us at Caféina, where every cup of coffee and slice of cake comes with a side of heart and history.
-story_image: "/images/team/team-popup.jpg"
+story_image: "/images/team/millie-callum.jpg"
 story_image_alt: "Millie and Callum, owners of Cafeina"
 
 values:
