@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, X, SlidersHorizontal, Info, BookOpen, Martini, Beer, CakeSlice, Wine, BottleWine, Coffee, type LucideIcon } from "lucide-react";
+import { Search, X, SlidersHorizontal, Info, BookOpen } from "lucide-react";
 import { MenuItem } from "./MenuItem";
 import { FadeIn } from "./FadeIn";
 import { MenuGallery, type MenuPage } from "./MenuGallery";
+import { withBase } from "../utils/url";
 import {
   groupBySubcategory,
   presentAllergens,
@@ -32,14 +33,15 @@ const MENU_PAGE_SLUGS = new Set([
   "hot-drinks",
 ]);
 
-// A little hand-of-the-house icon per category, to lift the section headers.
-const CATEGORY_ICON: Record<string, LucideIcon> = {
-  cocktails: Martini,
-  "cold-drinks-beers-wine": Beer,
-  "food-treats": CakeSlice,
-  "liqueurs-shots": Wine,
-  spirits: BottleWine,
-  "hot-drinks": Coffee,
+// Hand-drawn illustration cropped from the printed menu, per category, to lift
+// the section headers in keeping with the menu's own artwork.
+const CATEGORY_ICON: Record<string, string> = {
+  cocktails: "/images/menu/icons/cocktails.png",
+  "cold-drinks-beers-wine": "/images/menu/icons/cold-drinks-beers-wine.png",
+  "food-treats": "/images/menu/icons/food-treats.png",
+  "liqueurs-shots": "/images/menu/icons/liqueurs-shots.png",
+  spirits: "/images/menu/icons/spirits.png",
+  "hot-drinks": "/images/menu/icons/hot-drinks.png",
 };
 
 export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
@@ -294,7 +296,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
               if (catItems.length === 0) return null;
               const groups = groupBySubcategory(catItems, category.title);
               const hasPage = MENU_PAGE_SLUGS.has(category.slug);
-              const Icon = CATEGORY_ICON[category.slug];
+              const iconSrc = CATEGORY_ICON[category.slug];
               return (
                 <section
                   key={category.slug}
@@ -306,9 +308,9 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                 >
                   <FadeIn className="mb-8">
                     <div className="flex items-center gap-3.5 mb-3">
-                      {Icon && (
-                        <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-teal-pale text-teal-deep ring-1 ring-brass/30 shrink-0">
-                          <Icon className="w-5 h-5" />
+                      {iconSrc && (
+                        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-pale ring-1 ring-brass/30 shrink-0 overflow-hidden">
+                          <img src={withBase(iconSrc)} alt="" aria-hidden="true" className="w-9 h-9 object-contain" />
                         </span>
                       )}
                       <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
