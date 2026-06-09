@@ -17,9 +17,6 @@ hero_button_url: "/menu"
 welcome_heading: "Welcome to Cafeina"
 welcome_subheading: "Local La Marina café — fresh cakes & snacks daily"
 welcome_body: "Feel at home with our exceptional table service, unique drinks and warm atmosphere. Every cup of coffee and slice of cake comes with a side of heart and history."
-loyalty_text: "25% off when you join our loyalty club"
-loyalty_cta_text: "Apply now"
-loyalty_cta_url: "/contact"
 
 offerings:
   - title: "Fresh Cakes"

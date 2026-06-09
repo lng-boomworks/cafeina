@@ -37,9 +37,6 @@ interface HomePageProps {
   heroCtaUrl?: string;
   heroButtonText?: string;
   heroButtonUrl?: string;
-  loyaltyText?: string;
-  loyaltyCtaText?: string;
-  loyaltyCtaUrl?: string;
 
   interiorImage?: string;
   interiorImageAlt?: string;
@@ -76,9 +73,6 @@ export function HomePage(props: HomePageProps) {
           ctaUrl={props.heroCtaUrl}
           buttonText={props.heroButtonText}
           buttonUrl={props.heroButtonUrl}
-          loyaltyText={props.loyaltyText}
-          loyaltyCtaText={props.loyaltyCtaText}
-          loyaltyCtaUrl={props.loyaltyCtaUrl}
         />
 
         <StoryBand

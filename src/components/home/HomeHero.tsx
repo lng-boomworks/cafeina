@@ -14,9 +14,6 @@ interface HomeHeroProps {
   ctaUrl?: string;
   buttonText?: string;
   buttonUrl?: string;
-  loyaltyText?: string;
-  loyaltyCtaText?: string;
-  loyaltyCtaUrl?: string;
 }
 
 const TRUST = ["Since 2009", "Family-run", "Homemade cakes", "Table service", "Craft cocktails"];
@@ -31,9 +28,6 @@ export function HomeHero({
   ctaUrl = "/contact",
   buttonText = "See the menu",
   buttonUrl = "/menu",
-  loyaltyText,
-  loyaltyCtaText,
-  loyaltyCtaUrl,
 }: HomeHeroProps) {
   const base = image.replace(/\.(webp|jpe?g|png)$/i, "");
   const webp = `${base}.webp`;
@@ -79,17 +73,7 @@ export function HomeHero({
               <Button variant="white" href={ctaUrl}>{ctaText}</Button>
               <Button variant="outline-white" href={buttonUrl}>{buttonText}</Button>
             </div>
-            <p className="text-sm text-white/65 italic mb-8">Mon–Sat from 9am · Sun from 5pm · till late</p>
-            {loyaltyText && (
-              <div className="inline-flex flex-wrap items-center gap-3 px-5 py-3 rounded-full bg-white/95 border border-white/40 backdrop-blur-sm shadow-lg">
-                <span className="text-[15px] text-teal-deep font-medium">{loyaltyText}</span>
-                {loyaltyCtaText && loyaltyCtaUrl && (
-                  <a href={withBase(loyaltyCtaUrl)} className="text-[14px] font-semibold text-teal-mid hover:text-teal-deep underline underline-offset-4">
-                    {loyaltyCtaText} →
-                  </a>
-                )}
-              </div>
-            )}
+            <p className="text-sm text-white/65 italic">Mon–Sat from 9am · Sun from 5pm · till late</p>
           </FadeIn>
         </div>
 

@@ -178,7 +178,6 @@ export function ContactPage({
                         <option>Book a table</option>
                         <option>Wine tasting reservation</option>
                         <option>Private event or function</option>
-                        <option>Loyalty club / 25% off</option>
                         <option>General enquiry</option>
                       </select>
                     </div>

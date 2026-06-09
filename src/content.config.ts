@@ -71,9 +71,6 @@ const pages = defineCollection({
     welcome_heading: z.string().optional(),
     welcome_subheading: z.string().optional(),
     welcome_body: z.string().optional(),
-    loyalty_text: z.string().optional(),
-    loyalty_cta_text: z.string().optional(),
-    loyalty_cta_url: z.string().optional(),
     offerings: z.array(offering).optional(),
     featured_product: featuredProduct.optional(),
 
