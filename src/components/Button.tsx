@@ -24,13 +24,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ variant = "primary", href, external, className = "", children, ...props }: ButtonProps) {
-  const baseClass = "inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg text-[15px] font-medium transition-all duration-200";
+  const baseClass = "inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg text-[15px] font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 will-change-transform";
 
   const variants: Record<string, string> = {
-    primary: "bg-teal-deep text-white hover:bg-[#2b1a0f] hover:-translate-y-px shadow-sm hover:shadow",
-    ghost: "border-[1.5px] border-teal-mid text-teal-deep hover:bg-teal-pale",
-    "outline-white": "border-[1.5px] border-white text-white hover:bg-white/10",
-    white: "bg-white text-teal-deep hover:bg-white/90 hover:-translate-y-px shadow-sm",
+    primary: "bg-teal-deep text-white hover:bg-espresso shadow-sm hover:shadow-md",
+    ghost: "border-[1.5px] border-teal-mid text-teal-deep hover:bg-teal-pale hover:border-teal-deep",
+    "outline-white": "border-[1.5px] border-white/80 text-white hover:bg-white/10 hover:border-white",
+    white: "bg-white text-teal-deep hover:bg-white shadow-sm hover:shadow-md",
   };
 
   const classes = `${baseClass} ${variants[variant]} ${className}`;

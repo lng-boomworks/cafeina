@@ -31,6 +31,18 @@ const ogImageURL = new URL(withBase(ogImage), Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Reveal the intro overlay before first paint, but only when JS is on,
+         motion is allowed, and it's the first visit this session. No-JS / repeat
+         visits / reduced-motion never see it, so the page is identical. -->
+    <script is:inline>
+      (function () {
+        try {
+          var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          var seen = sessionStorage.getItem("cafeina_intro");
+          if (!reduce && !seen) document.documentElement.classList.add("intro");
+        } catch (e) {}
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -97,6 +109,97 @@ const ogImageURL = new URL(withBase(ogImage), Astro.site);
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-background text-foreground">
+    <div id="intro-overlay" aria-hidden="true">
+      <div class="text-center px-6">
+        <picture class="intro-mark inline-block">
+          <source srcset={withBase("/images/brand/cafeina-logo-white.webp")} type="image/webp" />
+          <img
+            src={withBase("/images/brand/cafeina-logo-white.png")}
+            alt=""
+            width={579}
+            height={195}
+            class="h-12 md:h-14 w-auto"
+          />
+        </picture>
+        <div class="intro-rule"></div>
+      </div>
+    </div>
+
     <slot />
+
+    <!-- Site-wide motion: Lenis smooth scroll + GSAP ScrollTrigger scrub.
+         Bundled module script; runs once on every page. -->
+    <script>
+      import Lenis from "lenis";
+      import gsap from "gsap";
+      import ScrollTrigger from "gsap/ScrollTrigger";
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Intro overlay: fade out (first visit) or remove immediately otherwise.
+      const overlay = document.getElementById("intro-overlay");
+      if (overlay && document.documentElement.classList.contains("intro")) {
+        try { sessionStorage.setItem("cafeina_intro", "1"); } catch (e) {}
+        setTimeout(() => {
+          overlay.classList.add("intro-hide");
+          setTimeout(() => overlay.remove(), 800);
+        }, 950);
+      } else if (overlay) {
+        overlay.remove();
+      }
+
+      if (!reduce) {
+        gsap.registerPlugin(ScrollTrigger);
+        // Enables tall-pin sizing in CSS (see global.css `.pin-on`).
+        document.documentElement.classList.add("pin-on");
+
+        const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((t) => lenis.raf(t * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        // Scrub effects on opted-in sections. Uses a sticky inner element for the
+        // "pinned" feel (no DOM mutation), so it's safe alongside React islands.
+        const initScrub = () => {
+          document.querySelectorAll("[data-pin-scrub]").forEach((el) => {
+            const img = el.querySelector("[data-pin-image]");
+            const text = el.querySelector("[data-pin-text]");
+            if (img) {
+              gsap.fromTo(
+                img,
+                { scale: 1 },
+                {
+                  scale: 1.07,
+                  ease: "none",
+                  scrollTrigger: { trigger: el, start: "top top", end: "bottom bottom", scrub: true },
+                }
+              );
+            }
+            if (text) {
+              gsap.fromTo(
+                text,
+                { y: 28, autoAlpha: 0.55 },
+                {
+                  y: 0,
+                  autoAlpha: 1,
+                  ease: "none",
+                  scrollTrigger: { trigger: el, start: "top 70%", end: "top 32%", scrub: true },
+                }
+              );
+            }
+          });
+          ScrollTrigger.refresh();
+        };
+
+        // Let islands hydrate + layout settle before measuring.
+        window.addEventListener("load", () => requestAnimationFrame(initScrub));
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
+        let resizeRaf = 0;
+        window.addEventListener("resize", () => {
+          cancelAnimationFrame(resizeRaf);
+          resizeRaf = requestAnimationFrame(() => ScrollTrigger.refresh());
+        });
+      }
+    </script>
   </body>
 </html>

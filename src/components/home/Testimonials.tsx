@@ -40,66 +40,56 @@ export function Testimonials({
       effect: "fade",
       fadeEffect: { crossFade: true },
       speed: 700,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      pagination: {
-        el: el.querySelector<HTMLElement>(".swiper-pagination") ?? undefined,
-        clickable: true,
-      },
+      autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+      pagination: { el: el.querySelector<HTMLElement>(".swiper-pagination") ?? undefined, clickable: true },
       keyboard: { enabled: true },
-      a11y: {
-        enabled: true,
-        prevSlideMessage: "Previous testimonial",
-        nextSlideMessage: "Next testimonial",
-      },
+      a11y: { enabled: true, prevSlideMessage: "Previous testimonial", nextSlideMessage: "Next testimonial" },
     });
-    return () => {
-      swiperInstance.destroy(true, true);
-    };
+    return () => swiperInstance.destroy(true, true);
   }, [items.length]);
 
   return (
-    <section className="py-20 md:py-24 bg-ivory">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center mb-12">
-          <span className="text-teal-mid font-medium uppercase tracking-wide text-sm mb-4 block">
-            {eyebrow}
+    <section className="relative bg-espresso text-white py-20 md:py-28 overflow-hidden grain">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Reputation pull-quote */}
+        <FadeIn className="text-center mb-14 md:mb-16">
+          <span className="inline-flex items-center gap-3 mb-6 text-brass-soft">
+            <span className="w-10 rule-brass" />
+            <span className="eyebrow">{eyebrow}</span>
+            <span className="w-10 rule-brass" />
           </span>
-          <h2 className="font-serif italic">{heading}</h2>
+          <p className="font-serif italic text-white text-balance mx-auto max-w-3xl [font-size:clamp(30px,4.4vw,58px)] [line-height:1.05]">
+            &ldquo;The best little bar on the La&nbsp;Marina urbanisation.&rdquo;
+          </p>
+          <p className="mt-5 text-white/55 text-sm uppercase tracking-[0.2em]">— the locals</p>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div
             ref={containerRef}
-            className="swiper relative bg-white rounded-[24px] border border-border overflow-hidden"
+            className="swiper relative bg-espresso-soft/80 rounded-[24px] border border-white/10 overflow-hidden backdrop-blur-sm"
+            style={{
+              ["--swiper-pagination-color" as string]: "var(--color-brass)",
+              ["--swiper-pagination-bullet-inactive-color" as string]: "#ffffff",
+            }}
           >
             <div className="swiper-wrapper">
               {items.map((t, i) => (
                 <div key={`${t.author}-${i}`} className="swiper-slide">
                   <div className="grid md:grid-cols-5 gap-0">
                     {t.image && (
-                      <div className="md:col-span-2 aspect-[4/3] md:aspect-auto bg-teal-pale overflow-hidden">
-                        <img
-                          src={withBase(t.image)}
-                          alt={t.image_alt ?? ""}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
+                      <div className="md:col-span-2 aspect-[4/3] md:aspect-auto bg-espresso overflow-hidden">
+                        <img src={withBase(t.image)} alt={t.image_alt ?? ""} className="w-full h-full object-cover" loading="lazy" />
                       </div>
                     )}
-                    <div
-                      className={`${t.image ? "md:col-span-3" : "md:col-span-5"} p-8 md:p-12 pb-16 md:pb-16 flex flex-col justify-center`}
-                    >
-                      <Quote className="w-8 h-8 text-teal-mid mb-4" strokeWidth={1.5} />
-                      <blockquote className="font-serif italic text-[20px] md:text-[22px] leading-[1.5] text-teal-deep mb-6 text-balance">
+                    <div className={`${t.image ? "md:col-span-3" : "md:col-span-5"} p-8 md:p-12 pb-16 flex flex-col justify-center`}>
+                      <Quote className="w-8 h-8 text-brass mb-4" strokeWidth={1.5} />
+                      <blockquote className="font-serif italic text-[20px] md:text-[23px] leading-[1.5] text-white mb-6 text-balance">
                         &ldquo;{t.quote}&rdquo;
                       </blockquote>
                       <div>
-                        <p className="font-semibold text-teal-deep">{t.author}</p>
-                        {t.role && <p className="text-sm text-text-muted">{t.role}</p>}
+                        <p className="font-semibold text-white">{t.author}</p>
+                        {t.role && <p className="text-sm text-white/55">{t.role}</p>}
                       </div>
                     </div>
                   </div>

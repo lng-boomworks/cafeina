@@ -33,6 +33,12 @@
   --color-text-body: hsl(21 48% 18%);   /* #442a18 — body text */
   --color-text-muted: hsl(26 35% 31%);  /* #6b4a33 — muted body text */
 
+  /* Overhaul additions — depth + accent (additive; nothing existing changed) */
+  --color-espresso: hsl(27 50% 6%);     /* ~#170e07 — near-black warm: night/bar drama */
+  --color-espresso-soft: hsl(24 44% 10%);/* ~#241710 — slightly lifted espresso */
+  --color-brass: hsl(40 53% 54%);       /* ~#c9a14e — antique gold accent */
+  --color-brass-soft: hsl(40 46% 70%);  /* ~#d8bd8c — soft brass for hairline rules */
+
   /* Semantic */
   --color-background: var(--color-cream);
   --color-foreground: var(--color-text-body);
@@ -99,4 +105,125 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* Eyebrow / kicker label — caps, tracked. Colour set per-use (brass/sage). */
+  .eyebrow {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+
+  /* Brass hairline rule used to flank eyebrows and section markers. */
+  .rule-brass {
+    height: 1px;
+    background: var(--color-brass);
+    opacity: 0.6;
+  }
+
+  /* Subtle film-grain texture overlay for depth on solid/photographic panels.
+     Opt-in: add `grain` to a positioned container. Pointer-events none. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Seamless horizontal marquee (duplicate the track content so -50% loops). */
+  @keyframes cafeina-marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+  .marquee-track {
+    display: inline-flex;
+    width: max-content;
+    will-change: transform;
+    animation: cafeina-marquee var(--marquee-duration, 32s) linear infinite;
+  }
+  .marquee-paused .marquee-track { animation-play-state: paused; }
+
+  /* Trust strip: static at rest, gentle drift on hover only. */
+  .hover-marquee .hover-marquee-track {
+    will-change: transform;
+    transition: transform 0.4s ease;
+  }
+  .hover-marquee:hover .hover-marquee-track {
+    animation: cafeina-marquee 28s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .hover-marquee:hover .hover-marquee-track {
+      animation: none !important;
+    }
+  }
+}
+
+/* Intro overlay — hidden by default; only shown when the head script adds
+   `.intro` to <html> (JS on, not reduced-motion, first visit this session).
+   With JS disabled it never appears, so the page looks identical. */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  background: var(--color-espresso);
+}
+html.intro #intro-overlay {
+  display: grid;
+}
+#intro-overlay .intro-mark {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: intro-mark-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+#intro-overlay .intro-rule {
+  width: 0;
+  height: 1px;
+  margin: 1.1rem auto 0;
+  background: var(--color-brass);
+  animation: intro-rule-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+#intro-overlay.intro-hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+@keyframes intro-mark-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes intro-rule-in {
+  to { width: 140px; }
+}
+
+/* Pin/scrub sizing only when motion is enabled (Base.astro adds `.pin-on`).
+   Without JS or under reduced-motion the section stays a normal static block. */
+html.pin-on [data-pin-scrub] {
+  min-height: 185vh;
+}
+html.pin-on [data-pin-scrub] [data-pin-sticky] {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+/* Lenis smooth-scroll (only active once Lenis adds the `.lenis` class). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

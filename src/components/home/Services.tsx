@@ -1,6 +1,5 @@
 import { FadeIn } from "../FadeIn";
 import { Button } from "../Button";
-import { withBase } from "../../utils/url";
 
 interface Offering {
   title: string;
@@ -17,65 +16,52 @@ interface ServicesProps {
 }
 
 const defaultOfferings: Offering[] = [
-  {
-    title: "Fresh Cakes",
-    body: "Baked in-house daily — classics like lemon drizzle, Victoria sponge and carrot cake, alongside rotating seasonal bakes at the counter.",
-  },
-  {
-    title: "Savouries",
-    body: "Savour the flavours of our handcrafted savouries, where tradition meets gourmet excellence — sausage rolls and more, made with locally-sourced ingredients.",
-  },
-  {
-    title: "Take-away",
-    body: "Elevate your on-the-go experience with our premium take-away service — a seamless blend of convenience and delight.",
-  },
+  { title: "Fresh Cakes", body: "Baked in-house daily — lemon drizzle, Victoria sponge, carrot cake, and rotating seasonal bakes at the counter." },
+  { title: "Savouries", body: "Handcrafted sausage rolls, toasties and more, where tradition meets gourmet — made with locally-sourced ingredients." },
+  { title: "Craft Cocktails", body: "From a properly stirred Negroni to a new signature each week — the bar comes alive after sundown." },
 ];
 
 export function Services({
-  heading = "Explore our offerings",
-  eyebrow = "Fresh cakes & snacks daily",
-  body = "From the first coffee of the morning to a proper afternoon tea and a craft cocktail after sundown — a full day's offer in one cozy spot.",
+  heading = "A full day in one cozy spot",
+  eyebrow = "Morning coffee to evening cocktails",
+  body = "From the first flat white of the day to a proper afternoon tea and a craft cocktail after dark — table service throughout.",
   offerings = defaultOfferings,
 }: ServicesProps) {
   return (
-    <section className="py-20 md:py-24 bg-white">
+    <section className="py-20 md:py-28 bg-ivory">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="max-w-3xl mx-auto mb-16 text-center">
-          <span className="text-teal-mid font-medium uppercase tracking-wide text-sm mb-4 block">{eyebrow}</span>
-          <h2 className="mb-6 font-serif italic">{heading}</h2>
-          <p className="text-lg text-text-muted">{body}</p>
-        </FadeIn>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Sticky-ish intro */}
+          <FadeIn className="lg:col-span-4">
+            <span className="inline-flex items-center gap-3 mb-5 text-sage">
+              <span className="w-10 rule-brass" />
+              <span className="eyebrow">{eyebrow}</span>
+            </span>
+            <h2 className="font-serif italic text-balance mb-6">{heading}</h2>
+            <p className="text-lg text-text-muted leading-relaxed mb-8">{body}</p>
+            <Button variant="ghost" href="/menu">Explore the full menu</Button>
+          </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {offerings.map((offer, i) => (
-            <FadeIn key={offer.title} delay={i * 0.1}>
-              <article className="group h-full bg-cream/40 rounded-[24px] border border-border overflow-hidden hover:shadow-md transition-all duration-300">
-                <div className="aspect-[4/3] overflow-hidden bg-teal-pale">
-                  {offer.image ? (
-                    <img
-                      src={withBase(offer.image)}
-                      alt={offer.image_alt ?? offer.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-text-muted/60 text-sm">
-                      {offer.title}
-                    </div>
-                  )}
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl mb-3 font-serif">{offer.title}</h3>
-                  <p className="text-text-muted leading-relaxed">{offer.body}</p>
+          {/* Editorial list */}
+          <FadeIn stagger={0.12} className="lg:col-span-8 lg:pt-2">
+            {offerings.map((offer, i) => (
+              <article
+                key={offer.title}
+                className="group grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-8 border-t border-border first:border-t-0 lg:first:border-t transition-transform duration-300 hover:translate-x-1"
+              >
+                <span className="font-serif italic text-brass/70 text-3xl md:text-4xl leading-none tabular-nums pt-1">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-serif text-teal-deep mb-2 group-hover:text-teal-mid transition-colors">
+                    {offer.title}
+                  </h3>
+                  <p className="text-text-muted leading-relaxed max-w-xl">{offer.body}</p>
                 </div>
               </article>
-            </FadeIn>
-          ))}
+            ))}
+          </FadeIn>
         </div>
-
-        <FadeIn className="text-center mt-14">
-          <Button variant="ghost" href="/menu">Explore the full menu</Button>
-        </FadeIn>
       </div>
     </section>
   );

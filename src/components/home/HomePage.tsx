@@ -1,10 +1,12 @@
 import { Navbar } from "../Navbar";
 import { Footer } from "../Footer";
 import { HomeHero } from "./HomeHero";
+import { StoryBand } from "./StoryBand";
 import { Services } from "./Services";
+import { TasteSplit } from "./TasteSplit";
 import { FeaturedProduct } from "./FeaturedProduct";
+import { SenseOfPlace } from "./SenseOfPlace";
 import { FinalCTA } from "./FinalCTA";
-import { LandscapeBanner } from "../LandscapeBanner";
 import { Testimonials, type TestimonialData } from "./Testimonials";
 
 interface Offering {
@@ -63,7 +65,7 @@ export function HomePage(props: HomePageProps) {
   return (
     <>
       <Navbar />
-      <main className="pt-[72px]">
+      <main>
         <HomeHero
           label={props.heroLabel}
           heading={props.heroHeading}
@@ -78,29 +80,20 @@ export function HomePage(props: HomePageProps) {
           loyaltyCtaText={props.loyaltyCtaText}
           loyaltyCtaUrl={props.loyaltyCtaUrl}
         />
-        {props.interiorImage && (
-          <section className="bg-cream pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
-            <LandscapeBanner
-              image={props.interiorImage}
-              imageAlt={props.interiorImageAlt ?? "Inside Cafeina"}
-              aspect="banner"
-              parallax
-              overlay={props.interiorHeading ? "dark" : "none"}
-              label={props.interiorHeading ? "our space" : undefined}
-              heading={props.interiorHeading}
-              subheading={props.interiorSubheading}
-            />
-          </section>
-        )}
-        <Services
-          heading={props.welcomeHeading}
+
+        <StoryBand
           eyebrow={props.welcomeSubheading}
+          heading={props.interiorHeading ?? props.welcomeHeading}
           body={props.welcomeBody}
-          offerings={props.offerings}
+          subbody={props.interiorSubheading}
+          image={props.interiorImage}
+          imageAlt={props.interiorImageAlt}
         />
-        {props.testimonials && props.testimonials.length > 0 && (
-          <Testimonials items={props.testimonials} />
-        )}
+
+        <Services offerings={props.offerings} />
+
+        <TasteSplit />
+
         {props.featuredProduct && (
           <FeaturedProduct
             label={props.featuredProduct.label}
@@ -113,6 +106,13 @@ export function HomePage(props: HomePageProps) {
             ctaUrl={props.featuredProduct.cta_url}
           />
         )}
+
+        <SenseOfPlace />
+
+        {props.testimonials && props.testimonials.length > 0 && (
+          <Testimonials items={props.testimonials} />
+        )}
+
         <FinalCTA
           heading={props.ctaHeading}
           text={props.ctaText}
