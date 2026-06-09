@@ -9,6 +9,7 @@ import {
   type MenuCategory,
   type MenuItemData,
 } from "../utils/menu";
+import { withBase } from "../utils/url";
 
 interface MenuExplorerProps {
   categories: MenuCategory[];
@@ -19,6 +20,17 @@ interface MenuExplorerProps {
 
 // Navbar (72px) + sticky category bar (~58px). Sections clear this when jumped to.
 const NAV_OFFSET = 132;
+
+// Stylised printed-menu artwork, used as a faint per-category background watermark.
+// Keyed by category slug; extension-less (WebP+JPG). Categories with no entry
+// (e.g. cocktails) simply render on the warm paper with no watermark.
+const MENU_ART: Record<string, string> = {
+  "cold-drinks-beers-wine": "/images/menu/cold-drinks-beers-wine-menu",
+  "food-treats": "/images/menu/food-treats-menu",
+  "liqueurs-shots": "/images/menu/liqueurs-shots-menu",
+  spirits: "/images/menu/spirits-menu",
+  "hot-drinks": "/images/menu/hot-drinks-menu",
+};
 
 export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
   const [query, setQuery] = useState("");
@@ -218,11 +230,11 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
         </div>
       </div>
 
-      {/* Sections */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          {total === 0 ? (
-            <div className="text-center py-20">
+      {/* Sections — warm paper with a faint per-category menu-art watermark */}
+      <div className="bg-ivory grain">
+        {total === 0 ? (
+          <section className="py-20">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <p className="text-lg text-text-muted mb-4">
                 Nothing matches that search. Try a different term or clear the filters.
               </p>
@@ -234,19 +246,24 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                 <X className="w-4 h-4" /> Clear filters
               </button>
             </div>
-          ) : (
-            perCategory.map(({ category, items: catItems }) => {
-              if (catItems.length === 0) return null;
-              const groups = groupBySubcategory(catItems, category.title);
-              return (
-                <section
-                  key={category.slug}
-                  id={category.slug}
-                  data-slug={category.slug}
-                  ref={(el) => (sectionRefs.current[category.slug] = el)}
-                  style={{ scrollMarginTop: `${NAV_OFFSET}px` }}
-                  className="mb-16 last:mb-0"
-                >
+          </section>
+        ) : (
+          perCategory.map(({ category, items: catItems }, ci) => {
+            if (catItems.length === 0) return null;
+            const groups = groupBySubcategory(catItems, category.title);
+            const artBase = MENU_ART[category.slug];
+            const side = ci % 2 === 0 ? "right" : "left";
+            return (
+              <section
+                key={category.slug}
+                id={category.slug}
+                data-slug={category.slug}
+                ref={(el) => (sectionRefs.current[category.slug] = el)}
+                style={{ scrollMarginTop: `${NAV_OFFSET}px` }}
+                className="relative overflow-hidden py-14 md:py-20"
+              >
+                {artBase && <MenuWatermark base={artBase} side={side} />}
+                <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                   <FadeIn className="mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
                     {category.description && (
@@ -277,12 +294,37 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                       </div>
                     </FadeIn>
                   ))}
-                </section>
-              );
-            })
-          )}
-        </div>
-      </section>
+                </div>
+              </section>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Faint, blurred, multiply-blended menu artwork anchored to one side of a
+ * category section and masked toward the reading column, so the illustrations
+ * read as ambient parchment texture without disturbing the live menu text.
+ */
+function MenuWatermark({ base, side }: { base: string; side: "left" | "right" }) {
+  const isRight = side === "right";
+  const fade = `linear-gradient(to ${isRight ? "left" : "right"}, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 35%, transparent 80%)`;
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+      <picture>
+        <source srcSet={withBase(`${base}.webp`)} type="image/webp" />
+        <img
+          src={withBase(`${base}.jpg`)}
+          alt=""
+          className={`absolute top-1/2 -translate-y-1/2 h-[130%] w-auto max-w-none opacity-[0.08] blur-[1.2px] [mix-blend-mode:multiply] ${
+            isRight ? "right-0 translate-x-[18%]" : "left-0 -translate-x-[18%]"
+          }`}
+          style={{ WebkitMaskImage: fade, maskImage: fade }}
+        />
+      </picture>
     </div>
   );
 }
