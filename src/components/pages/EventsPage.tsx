@@ -142,7 +142,7 @@ export function EventsPage({
   const hasPast = past.length > 0;
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} image={heroImage} imageAlt={heroImageAlt} />
 

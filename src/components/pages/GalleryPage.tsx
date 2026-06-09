@@ -40,7 +40,7 @@ export function GalleryPage({
   const sorted = [...images].sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <PageHero
           label={heroLabel}

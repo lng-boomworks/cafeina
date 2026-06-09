@@ -17,7 +17,12 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  /** When true, the bar sits transparent over a dark full-bleed hero until scroll. */
+  transparentOverHero?: boolean;
+}
+
+export function Navbar({ transparentOverHero = false }: NavbarProps) {
   const [location, setLocation] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,9 +30,8 @@ export function Navbar() {
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLLIElement>(null);
 
-  // Home page lets the bar sit transparent over the dark hero until scroll.
-  const isHome = location === "/";
-  const overHero = isHome && !isScrolled;
+  // Pages with a dark full-bleed hero let the bar sit transparent over it until scroll.
+  const overHero = transparentOverHero && !isScrolled;
 
   useEffect(() => {
     const path = window.location.pathname;

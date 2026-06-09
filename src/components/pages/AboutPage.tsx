@@ -56,7 +56,7 @@ export function AboutPage({
   const storyParagraphs = storyBody.split(/\n\s*\n/).filter(Boolean);
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} image={heroImage} imageAlt={heroImageAlt} />
 

@@ -32,7 +32,7 @@ export function MenuPage({
 }: MenuPageProps) {
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <PageHero
           label={heroLabel}

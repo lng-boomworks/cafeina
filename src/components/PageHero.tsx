@@ -54,7 +54,7 @@ export function PageHero({ label, heading, subheading, image, imageAlt, align = 
 
       {imageAlt && <span className="sr-only">{imageAlt}</span>}
 
-      <div className="relative min-h-[56vh] md:min-h-[62vh] flex items-center">
+      <div className="relative min-h-[72vh] md:min-h-[78vh] flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-32 w-full">
           <FadeIn className={`max-w-4xl text-white ${centered ? "mx-auto text-center" : ""}`}>
             {label && (

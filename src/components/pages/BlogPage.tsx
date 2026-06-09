@@ -148,7 +148,7 @@ export function BlogPage({
 
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <PageHero label={heroLabel} heading={heroHeading} subheading={heroSubheading} image="/images/hero/coffee-moment" imageAlt="A freshly poured coffee at Cafeina" />
 

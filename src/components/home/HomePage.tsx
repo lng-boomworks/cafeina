@@ -61,7 +61,7 @@ interface HomePageProps {
 export function HomePage(props: HomePageProps) {
   return (
     <>
-      <Navbar />
+      <Navbar transparentOverHero />
       <main>
         <HomeHero
           label={props.heroLabel}

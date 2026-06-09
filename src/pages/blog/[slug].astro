@@ -52,8 +52,8 @@ const ogImage = heroImage ?? '/images/og-default.jpg';
   ogImage={ogImage}
   type="article"
 >
-  <Navbar client:load />
-  <main class="pt-[72px]">
+  <Navbar client:load transparentOverHero={Boolean(heroImage)} />
+  <main class={heroImage ? "" : "pt-[72px]"}>
     <article>
       {heroImage ? (
         <header class="relative">

@@ -16,7 +16,7 @@
     {
       "id": "millie",
       "name": "Millie",
-      "role": "Owner",
+      "role": "Owner & Curator",
       "tagline": "Carrying Cafeina's legacy forward, one welcome at a time",
       "bio": "Millie first came to Cafeina as an employee under its original founder, Maria, learning the rhythms of the café and the warmth that keeps regulars coming back. Now, together with Callum, she's carrying that legacy forward — baking, serving, and greeting every guest with the same care that made this corner of La Marina feel like home for the last fifteen years.",
       "photo": "/images/team/millie.jpg",
@@ -28,7 +28,7 @@
     {
       "id": "callum",
       "name": "Callum",
-      "role": "Owner",
+      "role": "Owner & Mixologist",
       "tagline": "A stickler for good ingredients and a properly made Negroni",
       "bio": "Callum runs front-of-house and the craft cocktail side of the bar. A stickler for good ingredients and a properly made Negroni, he's the one you'll usually find chatting with regulars, recommending a wine, or stirring up the weekly cocktail special behind the counter.",
       "photo": "/images/team/callum.jpg",
@@ -40,7 +40,7 @@
     {
       "id": "archie",
       "name": "Archie",
-      "role": "Mixologist",
+      "role": "Owner & Mixologist",
       "tagline": "",
       "bio": "",
       "photo": "",
@@ -88,7 +88,7 @@
     {
       "id": "sarah",
       "name": "Sarah",
-      "role": "Bartender",
+      "role": "Bartender & Millie's aunt",
       "tagline": "",
       "bio": "",
       "photo": "",
@@ -100,7 +100,7 @@
     {
       "id": "melanie",
       "name": "Melanie",
-      "role": "Barista",
+      "role": "Barista & Millie's mum",
       "tagline": "",
       "bio": "",
       "photo": "",
