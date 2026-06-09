@@ -1,6 +1,6 @@
 ---
 title: "Easter Afternoon Tea at Cafeina"
-description: "Celebrate spring with a special Easter Afternoon Tea at Cafeina — available 3rd–10th April in La Marina. Chocolatey delights, seasonal favourites, and a beautifully presented tea stand for each guest."
+description: "Celebrate spring with a special Easter Afternoon Tea at Cafeina - available 3rd-10th April in La Marina. Chocolatey delights, seasonal favourites, and a beautifully presented tea stand for each guest."
 pubDate: 2026-03-29
 heroImage: "./images/easter-afternoon-tea.jpg"
 heroImageAlt: "Easter Afternoon Tea presentation at Cafeina Coffee & Cocktails, La Marina"
@@ -20,9 +20,9 @@ Celebrate the season of spring, sweetness, and togetherness with our special Eas
 
 ## The details
 
-- 📅 **Available:** Friday 3rd April – Friday 10th April
-- 📍 **Where:** Cafeina — Luis de Góngora, 43, Consum Square, La Marina
-- ⏳ **Pre-order required** — selections must be made at least 48 hours in advance
+- 📅 **Available:** Friday 3rd April - Friday 10th April
+- 📍 **Where:** Cafeina - Luis de Góngora, 43, Consum Square, La Marina
+- ⏳ **Pre-order required** - selections must be made at least 48 hours in advance
 
 ## What's on the stand
 
@@ -36,9 +36,9 @@ From chocolatey delights to seasonal favourites, our Easter menu is bursting wit
 
 ## Pricing
 
-- 💸 **€16 pp** — includes unlimited tea & coffee
-- 💸 **€18 pp** — includes a glass of cava
-- 💸 **€21 pp** — includes a cocktail of your choice
+- 💸 **€16 pp** - includes unlimited tea & coffee
+- 💸 **€18 pp** - includes a glass of cava
+- 💸 **€21 pp** - includes a cocktail of your choice
 
 ## A note on availability
 
@@ -46,8 +46,8 @@ Please note the bookings for this event are very limited, and we will only be ac
 
 ## How to book
 
-💐 Whether you're catching up with friends, treating family, or simply enjoying the Easter break — make it a moment to remember at Cafeina.
+💐 Whether you're catching up with friends, treating family, or simply enjoying the Easter break - make it a moment to remember at Cafeina.
 
-📲 **Book now** — DM us or stop by the bar to reserve your table.
+📲 **Book now** - DM us or stop by the bar to reserve your table.
 
 Tag someone who deserves a sweet Easter surprise!

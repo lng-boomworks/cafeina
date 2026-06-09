@@ -9,7 +9,7 @@ interface MarqueeProps {
 
 /**
  * Seamless horizontal marquee. Renders the track twice so the CSS animation
- * (translateX -50%) loops without a seam. Decorative — marked aria-hidden.
+ * (translateX -50%) loops without a seam. Decorative - marked aria-hidden.
  * Animation is disabled under prefers-reduced-motion (see global.css).
  */
 export function Marquee({ children, duration = 32, className = "" }: MarqueeProps) {

@@ -21,7 +21,7 @@ interface ClosingCTAProps {
 export function ClosingCTA({
   eyebrow = "Table service · till late",
   heading = "Pop in and say hola.",
-  text = "Open Mon–Sat from 9am and Sun from 5pm — till late. Table service, homemade cakes, and a warm welcome.",
+  text = "Open Mon-Sat from 9am and Sun from 5pm - till late. Table service, homemade cakes, and a warm welcome.",
   primary = { label: "Reserve a table", href: "/contact" },
   secondary = { label: "Call +34 711 05 13 58", href: "tel:+34711051358" },
 }: ClosingCTAProps) {

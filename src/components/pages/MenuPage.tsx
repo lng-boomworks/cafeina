@@ -21,14 +21,14 @@ interface MenuPageProps {
 export function MenuPage({
   heroLabel = "freshly made with the best ingredients",
   heroHeading = "Our menu",
-  heroSubheading = "From morning coffee to evening cocktails — every drink and every plate, made with care.",
+  heroSubheading = "From morning coffee to evening cocktails - every drink and every plate, made with care.",
   heroLandscapeImage,
   heroLandscapeImageAlt,
   categories,
   items,
   note,
   ctaHeading = "Hungry? Thirsty? Both?",
-  ctaText = "Come and say hola. Open Mon–Sat from 9am, Sun from 5pm — till late.",
+  ctaText = "Come and say hola. Open Mon-Sat from 9am, Sun from 5pm - till late.",
 }: MenuPageProps) {
   return (
     <>

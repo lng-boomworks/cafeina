@@ -1,5 +1,5 @@
 ---
-quote: "Callum's wine tasting nights are something special. You leave knowing more about Spanish reds than you thought possible — and you've made a few new friends along the way."
+quote: "Callum's wine tasting nights are something special. You leave knowing more about Spanish reds than you thought possible - and you've made a few new friends along the way."
 author: "Sofía"
 role: "Wine tasting regular"
 image: "/images/home/testimonial-3.jpg"

@@ -6,7 +6,7 @@ type Overlay = "none" | "subtle" | "dark";
 type Aspect = "banner" | "wide" | "classic";
 
 interface LandscapeBannerProps {
-  image: string;               // path WITHOUT .webp — we'll derive both webp + jpg
+  image: string;               // path WITHOUT .webp - we'll derive both webp + jpg
   imageAlt: string;
   label?: string;              // small uppercase eyebrow
   heading?: string;

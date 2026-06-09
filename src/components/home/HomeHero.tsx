@@ -49,7 +49,7 @@ export function HomeHero({
             style={{ transform: "translate3d(0, var(--parallax-y, 0px), 0)", willChange: "transform" }}
           />
         </picture>
-        {/* Warm espresso gradient — anchors the headline, lets the top breathe */}
+        {/* Warm espresso gradient - anchors the headline, lets the top breathe */}
         <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/55 to-espresso/35" />
         <div className="absolute inset-0 bg-gradient-to-r from-espresso/45 via-transparent to-espresso/25 hidden md:block" />
       </div>
@@ -73,7 +73,7 @@ export function HomeHero({
               <Button variant="white" href={ctaUrl}>{ctaText}</Button>
               <Button variant="outline-white" href={buttonUrl}>{buttonText}</Button>
             </div>
-            <p className="text-sm text-white/65 italic">Mon–Sat from 9am · Sun from 5pm · till late</p>
+            <p className="text-sm text-white/65 italic">Mon-Sat from 9am · Sun from 5pm · till late</p>
           </FadeIn>
         </div>
 
@@ -84,7 +84,7 @@ export function HomeHero({
         </div>
       </div>
 
-      {/* Trust strip — static at rest, gentle drift on hover */}
+      {/* Trust strip - static at rest, gentle drift on hover */}
       <div className="relative bg-cream border-t border-border">
         <div className="hover-marquee max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 overflow-hidden">
           <div className="hover-marquee-track flex items-center justify-center gap-2 flex-wrap md:flex-nowrap md:w-max">

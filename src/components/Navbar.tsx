@@ -78,7 +78,7 @@ export function Navbar({ transparentOverHero = false }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        <a href={withBase("/")} className="flex items-center gap-3 group" aria-label="Cafeina — home">
+        <a href={withBase("/")} className="flex items-center gap-3 group" aria-label="Cafeina - home">
           <picture>
             <source
               srcSet={withBase(logoBrown ? "/images/brand/cafeina-logo-brown.webp" : "/images/brand/cafeina-logo-white.webp")}
@@ -244,7 +244,7 @@ export function Navbar({ transparentOverHero = false }: NavbarProps) {
             })}
           </ul>
           <div className="mt-auto pt-8 flex flex-col gap-4">
-            <p className="text-sm text-white/50 uppercase tracking-wider">Mon–Sat 9am · Sun 5pm · till late</p>
+            <p className="text-sm text-white/50 uppercase tracking-wider">Mon-Sat 9am · Sun 5pm · till late</p>
             <a href="tel:+34711051358" className="flex items-center gap-2 text-lg text-white">
               <Phone className="w-4 h-4 text-brass" /> +34 711 05 13 58
             </a>

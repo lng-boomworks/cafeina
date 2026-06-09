@@ -46,7 +46,7 @@ export function PageHero({ label, heading, subheading, image, imageAlt, align = 
               style={{ transform: "translate3d(0, var(--parallax-y, 0px), 0)", willChange: "transform" }}
             />
           </picture>
-          {/* Warm espresso wash — keeps the headline legible, lets the photo breathe */}
+          {/* Warm espresso wash - keeps the headline legible, lets the photo breathe */}
           <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/60 to-espresso/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-espresso/50 via-transparent to-espresso/25 hidden md:block" />
         </div>

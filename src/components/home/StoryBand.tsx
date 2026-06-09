@@ -17,14 +17,14 @@ export function StoryBand({
   body = "Feel at home with our exceptional table service, unique drinks and warm atmosphere. Every cup of coffee and slice of cake comes with a side of heart and history.",
   subbody = "Fifteen years of slow cups and good company, in one cozy corner of La Marina.",
   image = "/images/hero/cafe-interior",
-  imageAlt = "Inside Cafeina — natural light, counter and seating",
+  imageAlt = "Inside Cafeina - natural light, counter and seating",
 }: StoryBandProps) {
   const base = image.replace(/\.(webp|jpe?g|png)$/i, "");
   return (
     <section className="bg-cream py-20 md:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Image — leads on the left, breaks slightly out */}
+          {/* Image - leads on the left, breaks slightly out */}
           <FadeIn direction="right" className="lg:col-span-7">
             <div className="relative">
               <div className="aspect-[5/4] md:aspect-[16/11] rounded-[28px] overflow-hidden border border-border shadow-[0_40px_90px_-40px_rgba(23,14,7,0.55)]">
@@ -57,7 +57,7 @@ export function StoryBand({
             <div className="flex items-center gap-4 mb-9 py-4 border-y border-border">
               <span className="font-serif italic text-teal-mid text-3xl leading-none">2×</span>
               <p className="text-[15px] text-text-muted leading-snug">
-                <span className="text-teal-deep font-medium">Doubling in size.</span> Same heart, more space —
+                <span className="text-teal-deep font-medium">Doubling in size.</span> Same heart, more space -
                 we're taking over the unit next door.
               </p>
             </div>

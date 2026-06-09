@@ -1,12 +1,12 @@
 ---
 title: "Menu"
 locale: en
-seo_title: "Our Menu — Cafeina La Marina"
-seo_description: "Cocktails, spirits, wine & beer, beverages and cakes — freshly made with the best ingredients at Cafeina in La Marina."
+seo_title: "Our Menu - Cafeina La Marina"
+seo_description: "Cocktails, spirits, wine & beer, beverages and cakes - freshly made with the best ingredients at Cafeina in La Marina."
 
 hero_label: "freshly made with the best ingredients"
 hero_heading: "our menus"
-hero_subheading: "From morning coffee to evening cocktails — every drink and every plate, made with care."
+hero_subheading: "From morning coffee to evening cocktails - every drink and every plate, made with care."
 hero_landscape_image: "/images/hero/menu-banner"
 hero_landscape_image_alt: "Cocktails on the bar at Cafeina"
 
@@ -18,7 +18,7 @@ menu_categories:
     image_alt: "Negroni cocktail"
   - title: "Spirits"
     slug: spirits
-    description: "Gins, whiskies, rums and more — a shelf worth exploring."
+    description: "Gins, whiskies, rums and more - a shelf worth exploring."
     image: /images/menu/spirits/spirits-collection.jpeg
     image_alt: "Spirits collection at Cafeina"
   - title: "Wine & Beer"
@@ -28,7 +28,7 @@ menu_categories:
     image_alt: "Wine glasses"
   - title: "Beverages"
     slug: beverages
-    description: "Coffee, loose-leaf teas, fresh juices and more — the morning list."
+    description: "Coffee, loose-leaf teas, fresh juices and more - the morning list."
     image: /images/menu/beverages/cafe-americano.webp
     image_alt: "Café americano"
   - title: "Cakes & Snacks"
@@ -38,5 +38,5 @@ menu_categories:
     image_alt: "Cakes and snacks"
 
 cta_heading: "Hungry? Thirsty? Both?"
-cta_text: "Come and say hola. Open Mon–Sat 9am, Sun 5pm — till late."
+cta_text: "Come and say hola. Open Mon-Sat 9am, Sun 5pm - till late."
 ---

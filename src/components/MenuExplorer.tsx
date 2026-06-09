@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, X, SlidersHorizontal, Info, BookOpen } from "lucide-react";
+import { Search, X, SlidersHorizontal, Info, BookOpen, Martini, Beer, CakeSlice, Wine, BottleWine, Coffee, type LucideIcon } from "lucide-react";
 import { MenuItem } from "./MenuItem";
 import { FadeIn } from "./FadeIn";
 import { MenuGallery, type MenuPage } from "./MenuGallery";
@@ -31,6 +31,16 @@ const MENU_PAGE_SLUGS = new Set([
   "spirits",
   "hot-drinks",
 ]);
+
+// A little hand-of-the-house icon per category, to lift the section headers.
+const CATEGORY_ICON: Record<string, LucideIcon> = {
+  cocktails: Martini,
+  "cold-drinks-beers-wine": Beer,
+  "food-treats": CakeSlice,
+  "liqueurs-shots": Wine,
+  spirits: BottleWine,
+  "hot-drinks": Coffee,
+};
 
 export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
   const [query, setQuery] = useState("");
@@ -148,7 +158,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
 
   return (
     <div>
-      {/* Controls — full-menu link + search + allergen filters (scrolls away above the sticky bar) */}
+      {/* Controls - full-menu link + search + allergen filters (scrolls away above the sticky bar) */}
       <section className="bg-white pt-4 pb-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {hasGallery && (
@@ -221,7 +231,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                 <span>
                   {note ? `${note} ` : ""}
                   {allergenOptions.length > 0 &&
-                    "Allergen codes show what a dish contains — please tell us about any allergy before ordering."}
+                    "Allergen codes show what a dish contains - please tell us about any allergy before ordering."}
                 </span>
               </p>
             )}
@@ -263,7 +273,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
         </div>
       </div>
 
-      {/* Sections — warm paper */}
+      {/* Sections - warm paper */}
       <section className="py-12 md:py-16 bg-ivory grain">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {total === 0 ? (
@@ -284,6 +294,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
               if (catItems.length === 0) return null;
               const groups = groupBySubcategory(catItems, category.title);
               const hasPage = MENU_PAGE_SLUGS.has(category.slug);
+              const Icon = CATEGORY_ICON[category.slug];
               return (
                 <section
                   key={category.slug}
@@ -294,9 +305,16 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                   className="mb-16 last:mb-0"
                 >
                   <FadeIn className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
+                    <div className="flex items-center gap-3.5 mb-3">
+                      {Icon && (
+                        <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-teal-pale text-teal-deep ring-1 ring-brass/30 shrink-0">
+                          <Icon className="w-5 h-5" />
+                        </span>
+                      )}
+                      <h2 className="text-3xl md:text-4xl font-serif italic text-teal-deep">{category.title}</h2>
+                    </div>
                     {category.description && (
-                      <p className="text-text-muted leading-relaxed mt-3 max-w-2xl">{category.description}</p>
+                      <p className="text-text-muted leading-relaxed max-w-2xl">{category.description}</p>
                     )}
                     <div className="flex items-center gap-4 mt-5">
                       <div className="w-12 h-[2px] bg-teal-mid" />
@@ -324,6 +342,7 @@ export function MenuExplorer({ categories, items, note }: MenuExplorerProps) {
                             name={item.name}
                             variant={item.variant}
                             description={item.description}
+                            ingredients={item.ingredients}
                             price={item.price}
                             image={item.image}
                             image_alt={item.image_alt}

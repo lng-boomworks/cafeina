@@ -8,7 +8,7 @@ import type { Locale } from "./i18n";
  *
  * This module exposes typed accessors for both halves. The `teamMembers`
  * content collection (content.config.ts) loads + validates the same `members`
- * array at build sync. Edit the JSON and the whole page updates — copy and team.
+ * array at build sync. Edit the JSON and the whole page updates - copy and team.
  */
 
 export interface TeamMember {

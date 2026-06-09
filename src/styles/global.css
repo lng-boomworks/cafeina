@@ -5,39 +5,39 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Cafeina palette — token names are kept from the starter template so
+ * Cafeina palette - token names are kept from the starter template so
  * Tailwind class references (bg-teal-deep, bg-cream, text-sage, etc.) still
  * resolve. Only the underlying values are swapped to the warm brown palette.
  */
 @theme inline {
-  /* Primary — dark brown family (was teal) */
-  --color-teal-deep: hsl(21 48% 18%);   /* #442a18 — primary dark brown */
-  --color-teal-mid: hsl(28 53% 43%);    /* #a76733 — caramel */
-  --color-teal-light: hsl(34 44% 69%);  /* #d3b88c — tan */
-  --color-teal-pale: hsl(37 58% 89%);   /* #f3e8d2 — very pale cream */
+  /* Primary - dark brown family (was teal) */
+  --color-teal-deep: hsl(21 48% 18%);   /* #442a18 - primary dark brown */
+  --color-teal-mid: hsl(28 53% 43%);    /* #a76733 - caramel */
+  --color-teal-light: hsl(34 44% 69%);  /* #d3b88c - tan */
+  --color-teal-pale: hsl(37 58% 89%);   /* #f3e8d2 - very pale cream */
 
-  /* Accent — warm muted brown (was sage green) */
-  --color-sage: hsl(28 31% 42%);        /* #8c6a4a — muted brown accent */
-  --color-sage-light: hsl(34 44% 69%);  /* #d3b88c — tan reuse */
+  /* Accent - warm muted brown (was sage green) */
+  --color-sage: hsl(28 31% 42%);        /* #8c6a4a - muted brown accent */
+  --color-sage-light: hsl(34 44% 69%);  /* #d3b88c - tan reuse */
 
   /* Surfaces */
-  --color-cream: hsl(35 46% 81%);       /* #e6d5b8 — main cream (user-specified background) */
-  --color-ivory: hsl(37 58% 89%);       /* #f3e8d2 — lighter cream for alt sections */
+  --color-cream: hsl(35 46% 81%);       /* #e6d5b8 - main cream (user-specified background) */
+  --color-ivory: hsl(37 58% 89%);       /* #f3e8d2 - lighter cream for alt sections */
 
-  /* Retained but unused in Cafeina UI — kept for theme completeness */
+  /* Retained but unused in Cafeina UI - kept for theme completeness */
   --color-lavender: hsl(28 31% 42%);
   --color-lavender-light: hsl(37 58% 89%);
 
   /* Neutral / ink */
-  --color-charcoal: hsl(22 49% 12%);    /* #2b1a0f — very dark warm brown (footer) */
-  --color-text-body: hsl(21 48% 18%);   /* #442a18 — body text */
-  --color-text-muted: hsl(26 35% 31%);  /* #6b4a33 — muted body text */
+  --color-charcoal: hsl(22 49% 12%);    /* #2b1a0f - very dark warm brown (footer) */
+  --color-text-body: hsl(21 48% 18%);   /* #442a18 - body text */
+  --color-text-muted: hsl(26 35% 31%);  /* #6b4a33 - muted body text */
 
-  /* Overhaul additions — depth + accent (additive; nothing existing changed) */
-  --color-espresso: hsl(27 50% 6%);     /* ~#170e07 — near-black warm: night/bar drama */
-  --color-espresso-soft: hsl(24 44% 10%);/* ~#241710 — slightly lifted espresso */
-  --color-brass: hsl(40 53% 54%);       /* ~#c9a14e — antique gold accent */
-  --color-brass-soft: hsl(40 46% 70%);  /* ~#d8bd8c — soft brass for hairline rules */
+  /* Overhaul additions - depth + accent (additive; nothing existing changed) */
+  --color-espresso: hsl(27 50% 6%);     /* ~#170e07 - near-black warm: night/bar drama */
+  --color-espresso-soft: hsl(24 44% 10%);/* ~#241710 - slightly lifted espresso */
+  --color-brass: hsl(40 53% 54%);       /* ~#c9a14e - antique gold accent */
+  --color-brass-soft: hsl(40 46% 70%);  /* ~#d8bd8c - soft brass for hairline rules */
 
   /* Semantic */
   --color-background: var(--color-cream);
@@ -50,7 +50,7 @@
   --color-card: hsl(0 0% 100%);
   --color-card-foreground: var(--color-text-body);
 
-  /* Typography — Cafeina uses Fraunces (display) + Inter (body) */
+  /* Typography - Cafeina uses Fraunces (display) + Inter (body) */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Fraunces', Georgia, serif;
 }
@@ -106,7 +106,7 @@
     display: none;
   }
 
-  /* Eyebrow / kicker label — caps, tracked. Colour set per-use (brass/sage). */
+  /* Eyebrow / kicker label - caps, tracked. Colour set per-use (brass/sage). */
   .eyebrow {
     font-weight: 500;
     text-transform: uppercase;
@@ -164,7 +164,7 @@
   }
 }
 
-/* Intro overlay — hidden by default; only shown when the head script adds
+/* Intro overlay - hidden by default; only shown when the head script adds
    `.intro` to <html> (JS on, not reduced-motion, first visit this session).
    With JS disabled it never appears, so the page looks identical. */
 #intro-overlay {

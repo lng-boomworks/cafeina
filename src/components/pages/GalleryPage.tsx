@@ -30,7 +30,7 @@ const ASPECTS = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-square
 export function GalleryPage({
   heroLabel = "inside the café",
   heroHeading = "A peek through the door.",
-  heroSubheading = "The café, the coffee, the cakes — and the slow afternoons in between.",
+  heroSubheading = "The café, the coffee, the cakes - and the slow afternoons in between.",
   heroLandscapeImage,
   heroLandscapeImageAlt,
   images = [],
@@ -47,7 +47,7 @@ export function GalleryPage({
           heading={heroHeading}
           subheading={heroSubheading}
           image={heroLandscapeImage ?? "/images/hero/gallery-banner"}
-          imageAlt={heroLandscapeImageAlt ?? "A warm Cafeina flatlay — drinks, photos and candlelight"}
+          imageAlt={heroLandscapeImageAlt ?? "A warm Cafeina flatlay - drinks, photos and candlelight"}
         />
 
         <section className="py-12 md:py-16 bg-white">

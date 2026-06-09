@@ -39,7 +39,7 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     journal: 'Diario',
     contact: 'Contacto',
     book_table: 'Reservar mesa',
-    open_every_day: 'Abierto todos los días 9h – tarde',
+    open_every_day: 'Abierto todos los días 9h - tarde',
     cocktails: 'Cócteles',
     spirits: 'Licores',
     'wine-beer': 'Vino y Cerveza',

@@ -29,7 +29,7 @@ export function TeamPage({
   introBody,
   members = [],
   ctaHeading = "Come and meet us.",
-  ctaText = "Open Mon–Sat from 9am, Sun from 5pm. Table service, homemade cakes, and a warm welcome.",
+  ctaText = "Open Mon-Sat from 9am, Sun from 5pm. Table service, homemade cakes, and a warm welcome.",
 }: TeamPageProps) {
   const sorted = [...members].sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
   return (

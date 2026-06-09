@@ -2,7 +2,7 @@
 import { withBase } from '../../utils/url';
 import { getMenuData } from '../../utils/menu';
 
-// One redirect stub per category slug — preserves old /menu/<category> deep
+// One redirect stub per category slug - preserves old /menu/<category> deep
 // links and gives every category (including new ones added to menu.json) a
 // shareable URL that lands on the right section of the single-page menu.
 export function getStaticPaths() {
@@ -27,7 +27,7 @@ const canonical = new URL(withBase('/menu'), Astro.site);
     <meta name="robots" content="noindex, follow" />
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <link rel="canonical" href={canonical} />
-    <title>{title} — Cafeina La Marina</title>
+    <title>{title} - Cafeina La Marina</title>
     <script is:inline define:vars={{ target }}>
       window.location.replace(target);
     </script>

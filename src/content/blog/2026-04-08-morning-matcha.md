@@ -1,6 +1,6 @@
 ---
 title: "Morning Matcha at Cafeina"
-description: "Ceremonial-grade matcha, whisked to a smooth finish — a little about why matcha is part of our morning ritual, and how we're serving it this season."
+description: "Ceremonial-grade matcha, whisked to a smooth finish - a little about why matcha is part of our morning ritual, and how we're serving it this season."
 pubDate: 2026-04-08
 heroImage: "./images/iced-strawberry-matcha.jpg"
 heroImageAlt: "Iced strawberry matcha at Cafeina Coffee & Cocktails, La Marina"
@@ -20,19 +20,19 @@ There's something about a proper matcha in the morning that nothing else quite m
 
 ## What matcha actually is
 
-Matcha is **ceremonial-grade green tea**, stone-ground into a fine powder. It's made slowly, whisked to a smooth finish. Not brewed like a normal tea — the whole leaf goes into the cup, which is why the colour is so rich and the benefits so concentrated.
+Matcha is **ceremonial-grade green tea**, stone-ground into a fine powder. It's made slowly, whisked to a smooth finish. Not brewed like a normal tea - the whole leaf goes into the cup, which is why the colour is so rich and the benefits so concentrated.
 
 ## The benefits
 
-- **Sustained energy** — a slow release of caffeine, not a spike
-- **Focus** — thanks to L-theanine, which pairs beautifully with the caffeine
-- **A natural boost** — without the jitters or the crash 🌞
+- **Sustained energy** - a slow release of caffeine, not a spike
+- **Focus** - thanks to L-theanine, which pairs beautifully with the caffeine
+- **A natural boost** - without the jitters or the crash 🌞
 
 ## What we're serving
 
-📸 Pictured: our **iced strawberry matcha** — a bright, fruity twist on the classic, and the kind of thing that's made for sunny mornings in Consum Square.
+📸 Pictured: our **iced strawberry matcha** - a bright, fruity twist on the classic, and the kind of thing that's made for sunny mornings in Consum Square.
 
-We also serve the traditional matcha latte (hot or iced), and we're always open to tweaking yours — extra shot, oat milk, a little less sweet. Just ask.
+We also serve the traditional matcha latte (hot or iced), and we're always open to tweaking yours - extra shot, oat milk, a little less sweet. Just ask.
 
 ---
 

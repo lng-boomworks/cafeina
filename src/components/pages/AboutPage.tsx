@@ -38,7 +38,7 @@ const valueIcons = [Leaf, Heart, Coffee, Utensils];
 export function AboutPage({
   heroLabel = "a family tradition",
   heroHeading = "serving with love",
-  heroSubheading = "Family-run in La Marina since 2009 — and now doubling in size.",
+  heroSubheading = "Family-run in La Marina since 2009 - and now doubling in size.",
   heroImage,
   heroImageAlt,
   storyHeading = "our story",
@@ -83,7 +83,7 @@ export function AboutPage({
                     <p key={i}>{para.trim()}</p>
                   ))}
                 </div>
-                <p className="font-serif italic text-teal-mid text-2xl mt-8">— Millie &amp; Callum</p>
+                <p className="font-serif italic text-teal-mid text-2xl mt-8">- Millie &amp; Callum</p>
               </FadeIn>
             </div>
           </div>

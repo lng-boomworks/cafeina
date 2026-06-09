@@ -189,7 +189,7 @@ const menuCategories = defineCollection({
 
 // Single source of truth for the Events page: src/data/cafeina_events.json
 // holds `{ page, events, pastEvents }`. The team edits that one file. `date` and
-// `price` are optional — the page only renders them when filled (see EventsPage).
+// `price` are optional - the page only renders them when filled (see EventsPage).
 const events = defineCollection({
   loader: file('./src/data/cafeina_events.json', { parser: (text) => JSON.parse(text).events }),
   schema: z.object({

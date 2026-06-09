@@ -16,15 +16,15 @@ interface ServicesProps {
 }
 
 const defaultOfferings: Offering[] = [
-  { title: "Fresh Cakes", body: "Baked in-house daily — lemon drizzle, Victoria sponge, carrot cake, and rotating seasonal bakes at the counter." },
-  { title: "Savouries", body: "Handcrafted sausage rolls, toasties and more, where tradition meets gourmet — made with locally-sourced ingredients." },
-  { title: "Craft Cocktails", body: "From a properly stirred Negroni to a new signature each week — the bar comes alive after sundown." },
+  { title: "Fresh Cakes", body: "Baked in-house daily - lemon drizzle, Victoria sponge, carrot cake, and rotating seasonal bakes at the counter." },
+  { title: "Savouries", body: "Handcrafted sausage rolls, toasties and more, where tradition meets gourmet - made with locally-sourced ingredients." },
+  { title: "Craft Cocktails", body: "From a properly stirred Negroni to a new signature each week - the bar comes alive after sundown." },
 ];
 
 export function Services({
   heading = "A full day in one cozy spot",
   eyebrow = "Morning coffee to evening cocktails",
-  body = "From the first flat white of the day to a proper afternoon tea and a craft cocktail after dark — table service throughout.",
+  body = "From the first flat white of the day to a proper afternoon tea and a craft cocktail after dark - table service throughout.",
   offerings = defaultOfferings,
 }: ServicesProps) {
   return (

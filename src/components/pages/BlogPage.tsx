@@ -125,11 +125,11 @@ function PostCard({ post }: { post: BlogPostSummary }) {
 export function BlogPage({
   heroLabel = "the journal",
   heroHeading = "Stories from the café.",
-  heroSubheading = "Updates from Millie and Callum — events, new menu additions, and a peek at what's happening behind the scenes at Cafeina.",
+  heroSubheading = "Updates from Millie and Callum - events, new menu additions, and a peek at what's happening behind the scenes at Cafeina.",
   emptyHeading = "Stay in the loop.",
-  emptyBody = "We're working on the first few posts. In the meantime — pop in, have a coffee, and we'll tell you in person.",
+  emptyBody = "We're working on the first few posts. In the meantime - pop in, have a coffee, and we'll tell you in person.",
   ctaHeading = "Let's stay in touch.",
-  ctaText = "Follow us on Instagram, or drop by in person. Mon–Sat from 9am, Sun from 5pm.",
+  ctaText = "Follow us on Instagram, or drop by in person. Mon-Sat from 9am, Sun from 5pm.",
   posts = [],
   allCategoriesLabel = "Everything",
 }: BlogPageProps) {
@@ -195,7 +195,7 @@ export function BlogPage({
                 </FadeIn>
 
                 {filtered.length === 0 && (
-                  <p className="text-center text-text-muted text-lg mt-12">Nothing in that category yet — try another one.</p>
+                  <p className="text-center text-text-muted text-lg mt-12">Nothing in that category yet - try another one.</p>
                 )}
               </div>
             </section>

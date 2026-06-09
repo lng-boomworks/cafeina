@@ -136,7 +136,7 @@ export function EventsPage({
   past = [],
   photos = [],
   ctaHeading = "Save your seat.",
-  ctaText = "Reserve your spot for our next event — drop us a line or pop in and ask.",
+  ctaText = "Reserve your spot for our next event - drop us a line or pop in and ask.",
 }: EventsPageProps) {
   const hasUpcoming = upcoming.length > 0;
   const hasPast = past.length > 0;
@@ -170,7 +170,7 @@ export function EventsPage({
             <div className="max-w-3xl mx-auto px-4 text-center">
               <FadeIn>
                 <h2 className="mb-4 font-serif italic">Nothing on the calendar right now.</h2>
-                <p className="text-lg text-text-muted">We're planning the next one — pop in or follow us for the announcement.</p>
+                <p className="text-lg text-text-muted">We're planning the next one - pop in or follow us for the announcement.</p>
               </FadeIn>
             </div>
           </section>
@@ -186,7 +186,7 @@ export function EventsPage({
                   <span className="w-10 rule-brass" />
                 </span>
                 <h2 className="mb-4 font-serif italic">Previously at Cafeina</h2>
-                <p className="text-lg text-text-muted">Events that have already happened — here's a taste of what you can expect.</p>
+                <p className="text-lg text-text-muted">Events that have already happened - here's a taste of what you can expect.</p>
               </FadeIn>
               <FadeIn stagger={0.06} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {past.map((ev) => (
@@ -207,7 +207,7 @@ export function EventsPage({
                   <span className="w-10 rule-brass" />
                 </span>
                 <h2 className="mb-4 font-serif italic">Pictures from past events</h2>
-                <p className="text-lg text-text-muted">A glimpse of the fun — come and make the next one even better.</p>
+                <p className="text-lg text-text-muted">A glimpse of the fun - come and make the next one even better.</p>
               </FadeIn>
               <FadeIn stagger={0.05} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {photos.map((img, i) => (

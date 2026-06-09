@@ -6,14 +6,14 @@ import { useParallax } from "../useParallax";
 interface FinalCTAProps {
   heading?: string;
   text?: string;
-  bgImage?: string; // accepts path with or without extension — derives .webp + .jpg
+  bgImage?: string; // accepts path with or without extension - derives .webp + .jpg
   bgImageAlt?: string;
   parallax?: boolean;
 }
 
 export function FinalCTA({
   heading = "Pop in and say hola.",
-  text = "We're open Mon–Sat from 9am and Sun from 5pm — till late. Table service, homemade cakes, and a warm welcome.",
+  text = "We're open Mon-Sat from 9am and Sun from 5pm - till late. Table service, homemade cakes, and a warm welcome.",
   bgImage,
   bgImageAlt = "",
   parallax = true,

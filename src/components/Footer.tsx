@@ -39,7 +39,7 @@ export function Footer({
             <br className="hidden sm:block" /> the urbanisation.
           </p>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/55">
-            Coffee, tea, homemade cakes &amp; craft cocktails — with table service and a warm welcome.
+            Coffee, tea, homemade cakes &amp; craft cocktails - with table service and a warm welcome.
             Same heart, more space: we're doubling in size.
           </p>
         </div>
@@ -49,7 +49,7 @@ export function Footer({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-10">
           {/* Address */}
           <div>
-            <a href={withBase("/")} className="inline-flex items-center gap-3 mb-6" aria-label="Cafeina — home">
+            <a href={withBase("/")} className="inline-flex items-center gap-3 mb-6" aria-label="Cafeina - home">
               <picture>
                 <source srcSet={withBase("/images/brand/cafeina-logo-white.webp")} type="image/webp" />
                 <img src={withBase("/images/brand/cafeina-logo-white.png")} alt="Cafeina" width={579} height={195} className="h-11 w-auto" />
@@ -60,7 +60,7 @@ export function Footer({
             </h4>
             <address className="not-italic text-[15px] leading-relaxed">
               Calle Luis de Gongora<br />
-              Sector VI–VII, Local 43–44<br />
+              Sector VI-VII, Local 43-44<br />
               03177 San Fulgencio<br />
               (Alicante), Spain
             </address>
@@ -72,7 +72,7 @@ export function Footer({
               <Clock className="w-3.5 h-3.5 text-brass" /> Opening Hours
             </h4>
             <p className="text-[15px] leading-relaxed mb-8">
-              <span className="text-white/45">Mon – Sat</span>&nbsp;&nbsp;·&nbsp;&nbsp;9am till late<br />
+              <span className="text-white/45">Mon - Sat</span>&nbsp;&nbsp;·&nbsp;&nbsp;9am till late<br />
               <span className="text-white/45">Sunday</span>&nbsp;&nbsp;·&nbsp;&nbsp;5pm till late
             </p>
             <h4 className="eyebrow text-white/80 mb-4">Explore</h4>

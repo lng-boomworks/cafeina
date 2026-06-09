@@ -61,7 +61,7 @@ export function Testimonials({
           <p className="font-serif italic text-white text-balance mx-auto max-w-3xl [font-size:clamp(30px,4.4vw,58px)] [line-height:1.05]">
             &ldquo;The best little bar on the La&nbsp;Marina urbanisation.&rdquo;
           </p>
-          <p className="mt-5 text-white/55 text-sm uppercase tracking-[0.2em]">— the locals</p>
+          <p className="mt-5 text-white/55 text-sm uppercase tracking-[0.2em]">- the locals</p>
         </FadeIn>
 
         <FadeIn delay={0.1}>

@@ -57,12 +57,12 @@ function InfoRow({
 export function ContactPage({
   heroLabel = "come say hola",
   heroHeading = "Pop in, call, or drop us a line",
-  heroSubheading = "Open Mon–Sat from 9am and Sun from 5pm — till late. Table service, homemade cakes, and a warm welcome.",
+  heroSubheading = "Open Mon-Sat from 9am and Sun from 5pm - till late. Table service, homemade cakes, and a warm welcome.",
   email = "hola@cafeinalamarina.com",
   phone = "+34 711 05 13 58",
   phoneDisplay,
   address = "Calle Luis de Gongora Sector VI-VII Local 43-44, 03177 San Fulgencio (Alicante), Spain",
-  hours = "Mon–Sat · 9am till late\nSunday · 5pm till late",
+  hours = "Mon-Sat · 9am till late\nSunday · 5pm till late",
   mapsQuery,
   web3formsKey = DEFAULT_WEB3FORMS_KEY,
 }: ContactPageProps) {
@@ -111,7 +111,7 @@ export function ContactPage({
                     Find us in La Marina
                   </h2>
                   <p className="text-text-muted leading-relaxed">
-                    A warm corner of San Fulgencio — table service, homemade cakes and craft cocktails, from your morning coffee right through till late.
+                    A warm corner of San Fulgencio - table service, homemade cakes and craft cocktails, from your morning coffee right through till late.
                   </p>
                 </div>
 
@@ -134,7 +134,7 @@ export function ContactPage({
                   </InfoRow>
                 </div>
 
-                {/* Directions — opens the visitor's native maps app */}
+                {/* Directions - opens the visitor's native maps app */}
                 <div>
                   <a
                     href={directionsHref}
@@ -162,7 +162,7 @@ export function ContactPage({
                 {submitted ? (
                   <div className="text-center py-12">
                     <CheckCircle2 className="w-16 h-16 text-sage mx-auto mb-6" />
-                    <h2 className="text-2xl mb-4 font-serif italic">Gracias — we'll be in touch soon.</h2>
+                    <h2 className="text-2xl mb-4 font-serif italic">Gracias - we'll be in touch soon.</h2>
                     <p className="text-text-muted text-lg mb-8">We aim to respond within one working day.</p>
                     <Button href="/" variant="ghost">Back to home</Button>
                   </div>

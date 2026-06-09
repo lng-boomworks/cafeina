@@ -39,11 +39,11 @@ export function SenseOfPlace() {
             <h2 className="font-serif italic text-balance max-w-xl">Light, warm wood &amp; vintage touches</h2>
           </div>
           <p className="text-text-muted max-w-sm leading-relaxed">
-            A cozy nook built for long conversations and slow cups — and a lively bar when the sun goes down.
+            A cozy nook built for long conversations and slow cups - and a lively bar when the sun goes down.
           </p>
         </div>
 
-        {/* Asymmetric collage — fixed-height row reserves space (no CLS) */}
+        {/* Asymmetric collage - fixed-height row reserves space (no CLS) */}
         <FadeIn stagger={0.1} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:h-[72vh]">
           <div className="md:col-span-7 md:h-full">
             <figure className="h-full overflow-hidden rounded-[24px] border border-border group">

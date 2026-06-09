@@ -1,6 +1,6 @@
 ---
 title: "Two Years of Cafeina: Thank You"
-description: "Two years ago today, we took over Cafeina. A thank you from Millie and Callum to everyone who has been part of the journey — staff, customers, families, and friends."
+description: "Two years ago today, we took over Cafeina. A thank you from Millie and Callum to everyone who has been part of the journey - staff, customers, families, and friends."
 pubDate: 2026-04-22
 heroImage: "./images/two-year-anniversary.jpg"
 heroImageAlt: "Millie and Callum celebrating two years of Cafeina Coffee & Cocktails"
@@ -20,13 +20,13 @@ It hasn't always been easy, but every challenge, every small win, and every mome
 
 ## To our staff
 
-We want to say the biggest thank you to all of our incredible staff, past and present — you've helped shape Cafeina into what it is today, and we're so grateful for every one of you 💪
+We want to say the biggest thank you to all of our incredible staff, past and present - you've helped shape Cafeina into what it is today, and we're so grateful for every one of you 💪
 
 A place is only ever as good as the people in it, and we're so proud of the team we've built.
 
 ## To our customers
 
-And to every single person who has supported us — whether it's for your daily coffee, a cheeky cocktail, celebrating a special occasion with us, and everything in between… thank you.
+And to every single person who has supported us - whether it's for your daily coffee, a cheeky cocktail, celebrating a special occasion with us, and everything in between… thank you.
 
 Your support truly means everything to us and never goes unnoticed 🤍
 
@@ -34,7 +34,7 @@ Your support truly means everything to us and never goes unnoticed 🤍
 
 A very special thank you to both of our parents and families who have supported us every step of the way. We honestly couldn't have done this without you ❤️
 
-Thank you as well for all the lovely cards, flowers and gifts — we've felt truly appreciated 💐
+Thank you as well for all the lovely cards, flowers and gifts - we've felt truly appreciated 💐
 
 ## Celebrating (and a bit of a teaser)
 

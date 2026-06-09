@@ -1,6 +1,6 @@
 {
   "page": {
-    "seo_title": "Meet the team — Cafeina La Marina",
+    "seo_title": "Meet the team - Cafeina La Marina",
     "seo_description": "Meet Millie and Callum, the family behind Cafeina. Pouring love into every coffee since 2009.",
     "hero_label": "the people behind the café",
     "hero_heading": "Meet the family",
@@ -8,9 +8,9 @@
     "hero_landscape_image": "/images/hero/team-banner",
     "hero_landscape_image_alt": "Coffee, notebook and a moment to linger at Cafeina",
     "intro_heading": "Small team, big welcome.",
-    "intro_body": "We're a family-run café — which means the face pouring your coffee is the same face who bakes the cake, takes the booking, and locks up at the end of the night. Pop in and say hello.",
+    "intro_body": "We're a family-run café - which means the face pouring your coffee is the same face who bakes the cake, takes the booking, and locks up at the end of the night. Pop in and say hello.",
     "cta_heading": "Come and meet us.",
-    "cta_text": "Open Mon–Sat from 9am, Sun from 5pm. Table service, homemade cakes, and a warm welcome."
+    "cta_text": "Open Mon-Sat from 9am, Sun from 5pm. Table service, homemade cakes, and a warm welcome."
   },
   "members": [
     {
@@ -18,7 +18,7 @@
       "name": "Millie",
       "role": "Owner & Curator",
       "tagline": "Carrying Cafeina's legacy forward, one welcome at a time",
-      "bio": "Millie first came to Cafeina as an employee under its original founder, Maria, learning the rhythms of the café and the warmth that keeps regulars coming back. Now, together with Callum, she's carrying that legacy forward — baking, serving, and greeting every guest with the same care that made this corner of La Marina feel like home for the last fifteen years.",
+      "bio": "Millie first came to Cafeina as an employee under its original founder, Maria, learning the rhythms of the café and the warmth that keeps regulars coming back. Now, together with Callum, she's carrying that legacy forward - baking, serving, and greeting every guest with the same care that made this corner of La Marina feel like home for the last fifteen years.",
       "photo": "/images/team/millie.jpg",
       "photo_alt": "Millie, co-owner of Cafeina La Marina",
       "order": 1,

@@ -16,7 +16,7 @@ const PANELS: Panel[] = [
   {
     eyebrow: "By day",
     title: "Coffee, tea & cakes",
-    body: "Slow mornings, proper afternoon tea and cakes baked in-house — brought to your table.",
+    body: "Slow mornings, proper afternoon tea and cakes baked in-house - brought to your table.",
     image: "/images/menu/beverages/coffee-art.jpg",
     imageAlt: "Latte art at Cafeina",
     href: "/menu",
@@ -25,7 +25,7 @@ const PANELS: Panel[] = [
   {
     eyebrow: "By night",
     title: "Craft cocktails & spirits",
-    body: "The best little bar on the urbanisation — signatures, classics, and a shelf worth exploring.",
+    body: "The best little bar on the urbanisation - signatures, classics, and a shelf worth exploring.",
     image: "/images/menu/spirits/gin-and-tonic.jpg",
     imageAlt: "A craft gin and tonic at Cafeina",
     href: "/menu/cocktails",

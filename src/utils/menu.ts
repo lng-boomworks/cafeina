@@ -9,8 +9,8 @@ import type { Locale } from "./i18n";
  *     menus: { "Category": { "Subcategory": [ { item, variant, price_eur, allergens } ] } } }
  *
  * This module flattens that into the flat `categories` / `items` arrays the UI
- * (and the Astro content collections) consume. Edit the JSON and everything —
- * sections, sticky nav, routes, search, allergen filters — updates. `allergens`
+ * (and the Astro content collections) consume. Edit the JSON and everything -
+ * sections, sticky nav, routes, search, allergen filters - updates. `allergens`
  * are "contains" codes (what the dish HAS), so filtering EXCLUDES them.
  */
 
@@ -19,6 +19,8 @@ interface RawItem {
   variant?: string | null;
   price_eur?: number | null;
   allergens?: string[];
+  /** Short "what's in it" line (e.g. cocktail ingredients). */
+  ingredients?: string | null;
 }
 
 interface RawMenu {
@@ -44,6 +46,8 @@ export interface MenuItemData {
   name: string;
   variant?: string;
   description?: string;
+  /** Short "what's in it" line (e.g. cocktail ingredients), shown smaller. */
+  ingredients?: string;
   price?: string;
   image?: string;
   image_alt?: string;
@@ -94,6 +98,7 @@ export function flattenMenu(source: RawMenu = raw): {
           subcategory: subName,
           name: it.item,
           variant: it.variant ?? undefined,
+          ingredients: it.ingredients ?? undefined,
           price: formatPrice(it.price_eur),
           allergens: it.allergens && it.allergens.length ? it.allergens : undefined,
           order: n,
@@ -161,7 +166,7 @@ export function presentAllergens(items: MenuItemData[]): string[] {
 
 /**
  * Read the menu, filtered to one locale and sorted. Safe in client components
- * (e.g. the Navbar) — the JSON is bundled at build time.
+ * (e.g. the Navbar) - the JSON is bundled at build time.
  */
 export function getMenuData(locale: Locale = "en"): {
   categories: MenuCategory[];

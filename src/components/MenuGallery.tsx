@@ -109,7 +109,7 @@ export function MenuGallery({ pages, index, open, onClose, onIndexChange }: Menu
           <ChevronLeft className="w-6 h-6" />
         </button>
 
-        <picture>
+        <picture className="contents">
           <source srcSet={withBase(`${page.image}.webp`)} type="image/webp" />
           <img
             key={page.slug}

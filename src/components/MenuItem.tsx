@@ -5,6 +5,8 @@ interface MenuItemProps {
   name: string;
   variant?: string;
   description?: string;
+  /** Short "what's in it" line, rendered smaller (e.g. cocktail ingredients). */
+  ingredients?: string;
   price?: string;
   image?: string;
   image_alt?: string;
@@ -17,6 +19,7 @@ export function MenuItem({
   name,
   variant,
   description,
+  ingredients,
   price,
   image,
   image_alt,
@@ -57,6 +60,9 @@ export function MenuItem({
           <span className="flex-1 border-b border-dotted border-border/70 translate-y-[-4px]" aria-hidden="true" />
           {price && <span className="text-base sm:text-lg font-medium text-teal-mid shrink-0">{price}</span>}
         </div>
+        {ingredients && (
+          <p className="text-[13px] italic text-text-muted/85 leading-snug mt-1">{ingredients}</p>
+        )}
         {description && (
           <p className="text-[15px] text-text-muted leading-relaxed mt-1">{description}</p>
         )}
