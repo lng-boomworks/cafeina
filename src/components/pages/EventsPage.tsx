@@ -5,22 +5,8 @@ import { Button } from "../Button";
 import { PageHero } from "../PageHero";
 import { ClosingCTA } from "../ClosingCTA";
 import { withBase } from "../../utils/url";
-
-export interface EventData {
-  title: string;
-  body: string;
-  image?: string;
-  image_alt?: string;
-  cta_text?: string;
-  cta_url?: string;
-  order?: number;
-}
-
-export interface EventGalleryImage {
-  src: string;
-  alt: string;
-  caption?: string;
-}
+import { CalendarDays, Tag } from "lucide-react";
+import type { EventItem, PastEventImage } from "../../utils/events";
 
 interface EventsPageProps {
   heroLabel?: string;
@@ -30,10 +16,30 @@ interface EventsPageProps {
   heroImageAlt?: string;
   introHeading?: string;
   introBody?: string;
-  events?: EventData[];
-  pastEvents?: EventGalleryImage[];
+  events?: EventItem[];
+  pastEvents?: PastEventImage[];
   ctaHeading?: string;
   ctaText?: string;
+}
+
+function EventMeta({ date, price }: { date?: string; price?: string }) {
+  if (!date && !price) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-2.5 mb-6">
+      {date && (
+        <span className="inline-flex items-center gap-2 rounded-full bg-teal-pale border border-border px-3.5 py-1.5 text-[13px] font-medium text-teal-deep">
+          <CalendarDays className="w-4 h-4 text-teal-mid" />
+          {date}
+        </span>
+      )}
+      {price && (
+        <span className="inline-flex items-center gap-2 rounded-full bg-espresso px-3.5 py-1.5 text-[13px] font-medium text-cream">
+          <Tag className="w-3.5 h-3.5 text-brass" />
+          {price}
+        </span>
+      )}
+    </div>
+  );
 }
 
 export function EventsPage({
@@ -70,25 +76,44 @@ export function EventsPage({
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 md:space-y-28">
             {sorted.map((ev, i) => {
-              const paragraphs = ev.body.split(/\n\s*\n/).filter(Boolean);
+              const paragraphs = ev.description.split(/\n\s*\n/).filter(Boolean);
+              const hasImage = Boolean(ev.image);
               const imageOnLeft = i % 2 === 0;
-              return (
-                <div key={ev.title} className="grid md:grid-cols-12 gap-10 lg:gap-16 items-center">
-                  <FadeIn direction={imageOnLeft ? "right" : "left"} className={`md:col-span-6 ${imageOnLeft ? "" : "md:order-2"}`}>
-                    <div className="aspect-[4/3] rounded-[28px] overflow-hidden border border-border/50 shadow-[0_30px_70px_-40px_rgba(23,14,7,0.45)] group">
-                      {ev.image ? (
-                        <img src={withBase(ev.image)} alt={ev.image_alt ?? ev.title} className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]" loading="lazy" />
-                      ) : (
-                        <div className="w-full h-full bg-teal-pale" />
-                      )}
+
+              const meta = (
+                <>
+                  <span className="inline-flex items-center gap-3 mb-5 text-sage">
+                    <span className="w-10 rule-brass" />
+                    <span className="eyebrow">what's on</span>
+                  </span>
+                  <h2 className="mb-5 font-serif italic text-balance">{ev.name}</h2>
+                  <EventMeta date={ev.date} price={ev.price} />
+                  <div className="space-y-4 text-[17px] text-text-body leading-[1.8]">
+                    {paragraphs.map((p, j) => (
+                      <p key={j}>{p.trim()}</p>
+                    ))}
+                  </div>
+                  {ev.cta_text && ev.cta_url && (
+                    <div className="mt-8">
+                      <Button href={ev.cta_url}>{ev.cta_text}</Button>
                     </div>
-                  </FadeIn>
-                  <FadeIn delay={0.1} className="md:col-span-6">
-                    <span className="inline-flex items-center gap-3 mb-5 text-sage">
+                  )}
+                </>
+              );
+
+              // No image → centered, full-width text card.
+              if (!hasImage) {
+                return (
+                  <FadeIn key={ev.id ?? ev.name} className="max-w-3xl mx-auto text-center">
+                    <span className="inline-flex items-center gap-3 mb-5 text-sage justify-center">
                       <span className="w-10 rule-brass" />
                       <span className="eyebrow">what's on</span>
+                      <span className="w-10 rule-brass" />
                     </span>
-                    <h2 className="mb-6 font-serif italic text-balance">{ev.title}</h2>
+                    <h2 className="mb-5 font-serif italic text-balance">{ev.name}</h2>
+                    <div className="flex justify-center">
+                      <EventMeta date={ev.date} price={ev.price} />
+                    </div>
                     <div className="space-y-4 text-[17px] text-text-body leading-[1.8]">
                       {paragraphs.map((p, j) => (
                         <p key={j}>{p.trim()}</p>
@@ -99,6 +124,19 @@ export function EventsPage({
                         <Button href={ev.cta_url}>{ev.cta_text}</Button>
                       </div>
                     )}
+                  </FadeIn>
+                );
+              }
+
+              return (
+                <div key={ev.id ?? ev.name} className="grid md:grid-cols-12 gap-10 lg:gap-16 items-center">
+                  <FadeIn direction={imageOnLeft ? "right" : "left"} className={`md:col-span-6 ${imageOnLeft ? "" : "md:order-2"}`}>
+                    <div className="aspect-[4/3] rounded-[28px] overflow-hidden border border-border/50 shadow-[0_30px_70px_-40px_rgba(23,14,7,0.45)] group">
+                      <img src={withBase(ev.image!)} alt={ev.image_alt ?? ev.name} className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]" loading="lazy" />
+                    </div>
+                  </FadeIn>
+                  <FadeIn delay={0.1} className="md:col-span-6">
+                    {meta}
                   </FadeIn>
                 </div>
               );
@@ -120,8 +158,13 @@ export function EventsPage({
               </FadeIn>
               <FadeIn stagger={0.05} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {pastEvents.map((img, i) => (
-                  <figure key={i} className="aspect-square rounded-2xl overflow-hidden border border-border/50 bg-teal-pale group">
+                  <figure key={i} className="relative aspect-square rounded-2xl overflow-hidden border border-border/50 bg-teal-pale group">
                     <img src={withBase(img.src)} alt={img.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    {img.caption && (
+                      <figcaption className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-espresso/85 to-transparent text-white text-xs translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        {img.caption}
+                      </figcaption>
+                    )}
                   </figure>
                 ))}
               </FadeIn>
