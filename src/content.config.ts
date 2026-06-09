@@ -198,7 +198,8 @@ const events = defineCollection({
   schema: z.object({
     id: z.string(),
     name: z.string(),
-    date: z.string().optional(),
+    date: z.string().optional(),       // display string, e.g. "Fri 14 Feb, 7pm"
+    date_iso: z.string().optional(),   // machine date YYYY-MM-DD → drives upcoming/past + sorting
     price: z.string().optional(),
     description: z.string(),
     image: z.string().optional(),
