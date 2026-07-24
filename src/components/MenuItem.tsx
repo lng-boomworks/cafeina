@@ -72,11 +72,18 @@ export function MenuItem({
             {codes.map((code) => (
               <li
                 key={code}
-                title={allergenLabel(code)}
-                className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-md border border-teal-mid/30 bg-teal-pale/60 text-[10px] font-semibold uppercase text-sage"
+                tabIndex={0}
+                className="group/allergen relative inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-md border border-teal-mid/30 bg-teal-pale/60 text-[10px] font-semibold uppercase text-sage cursor-help focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-mid/50"
               >
                 <span aria-hidden="true">{code}</span>
                 <span className="sr-only">{allergenLabel(code)}</span>
+                <span
+                  role="tooltip"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-teal-deep px-2 py-1 text-[11px] font-medium normal-case tracking-normal text-cream opacity-0 shadow-md transition-opacity duration-150 group-hover/allergen:opacity-100 group-focus/allergen:opacity-100"
+                >
+                  {allergenLabel(code)}
+                </span>
               </li>
             ))}
           </ul>
