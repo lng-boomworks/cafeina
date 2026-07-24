@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://lng-boomworks.github.io',
-  base: '/cafeina',
+  site: 'https://cafeinalamarina.com',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
